@@ -1,0 +1,987 @@
+/* General & Reset */
+:root {
+    --primary-color: #007bff; /* Example, adjust as needed */
+    --text-dark: #333;
+    --text-light: #fff;
+    --glass-bg: rgba(255, 255, 255, 0.15); /* Main glassmorphism background */
+    --glass-border: rgba(255, 255, 255, 0.18); /* Glassmorphism border */
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --nav-link-color: #555; /* Default light background nav link color */
+    --nav-link-hover-glow: rgba(0, 123, 255, 0.5); /* Blue glow */
+    --nav-link-dark-color: #fff; /* Dark background nav link color */
+    --button-bg-light: #f0f2f5;
+    --button-text-light: #555;
+    --button-bg-dark: #6a5acd; /* Example for JOIN button */
+    --button-text-dark: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    /* Default homepage background */
+    background-image: url('../img/homepage/homepage.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* -------------------- Glassmorphism Effect Base -------------------- */
+.glassmorphism {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px var(--shadow-light);
+    overflow: hidden; /* Ensures content stays within rounded corners */
+}
+
+/* -------------------- Navbar Styling -------------------- */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1000px;
+    padding: 15px 30px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center; /* Center the glassmorphism container */
+    align-items: center;
+    background: rgba(255, 255, 255, 0.3); /* Slightly more opaque glass for navbar */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px; /* Rounded corners for navbar */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease; /* Added transition for smooth theme change */
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--nav-link-color);
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.1s ease-out;
+}
+
+/* Nav Link Hover & Glow */
+.nav-link:hover {
+    color: var(--primary-color); /* Change color on hover */
+    text-shadow: 0 0 8px var(--nav-link-hover-glow); /* Glow effect */
+}
+
+/* Nav Link Expand on Click (using :active for brief visual feedback) */
+.nav-link:active {
+    transform: scale(1.05); /* Slightly expand */
+}
+
+/* Nav Link color switch on scroll (handled by JS adding .dark-theme-active to .navbar) */
+/* REMOVED: .nav-link.dark-mode-nav */
+
+/* Ensure active link on the current page is distinct */
+.nav-link.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* NEW: Styles when navbar is over a dark section (JavaScript adds .dark-theme-active) */
+.navbar.dark-theme-active .logo {
+    color: var(--nav-link-dark-color); /* White text for logo on dark sections */
+}
+
+.navbar.dark-theme-active .nav-links .nav-link {
+    color: var(--nav-link-dark-color); /* White text for links on dark sections */
+    text-shadow: none; /* Remove any text shadow that might obscure white text */
+}
+
+.navbar.dark-theme-active .nav-links .nav-link:hover {
+    color: var(--primary-color); /* Hover remains primary for contrast */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* Slight white glow on hover */
+}
+
+.navbar.dark-theme-active .nav-links .nav-link.active {
+    color: var(--primary-color); /* Active link remains primary */
+}
+
+
+/* -------------------- Buttons Styling -------------------- */
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+.btn-join {
+    background-color: var(--button-bg-dark); /* Distinct background for JOIN */
+    color: var(--button-text-dark);
+    box-shadow: 0 4px 10px rgba(106, 90, 205, 0.3);
+}
+
+.btn-join:hover {
+    background-color: #5d4aa3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(106, 90, 205, 0.4);
+}
+
+/* Small button for cards */
+.btn-small {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+    border-radius: 20px;
+}
+
+/* -------------------- Hero Section Styling - Homepage -------------------- */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Allows content and slogan to stack within hero */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    padding-top: 150px; /* Space for fixed navbar */
+    padding-bottom: 80px;
+}
+
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    z-index: 1;
+    position: relative;
+    margin-top: 0;
+    flex-grow: 1; /* Allow container to grow and push slogan to bottom */
+    max-width: 1000px; /* Aligns with navbar's max-width for consistent content area */
+    width: 90%; /* Responsive width, provides side spacing */
+    margin: 0 auto; /* Centers the container horizontally */
+}
+
+.hero-text-content {
+    flex: 2;
+    padding: 30px; /* Added internal padding for consistent box-like feel, even if transparent */
+    background: transparent; /* Ensure it stays transparent */
+    backdrop-filter: none; /* Ensure no blur */
+    border: none; /* Ensure no border */
+    box-shadow: none; /* Ensure no shadow */
+    text-align: left;
+    max-width: 500px;
+    z-index: 2;
+}
+
+.hero-text-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: #222;
+}
+
+.hero-text-content p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.trusted-members-box {
+    flex: 1;
+    min-width: 300px;
+    padding: 30px;
+    text-align: center;
+    z-index: 2;
+    /* Ensuring glassmorphism properties are explicitly here */
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px var(--shadow-light);
+    overflow: hidden;
+}
+
+.trusted-members-box h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.trusted-members-box ul {
+    list-style: none;
+    margin-bottom: 20px;
+    padding-left: 0;
+}
+
+.trusted-members-box ul li {
+    font-size: 1rem;
+    color: #444;
+    padding: 5px 0;
+}
+
+.trusted-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.trusted-members-box .since {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 20px;
+}
+
+/* -------------------- Gradient Ribbon Background (reused) -------------------- */
+.gradient-ribbon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120vw;
+    height: 100vh;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    background: linear-gradient(
+        270deg,
+        rgba(100, 100, 255, 0.15),
+        rgba(150, 200, 255, 0.25),
+        rgba(200, 255, 255, 0.35),
+        rgba(255, 200, 255, 0.25),
+        rgba(255, 100, 200, 0.15)
+    );
+    opacity: 0.8;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+}
+
+/* -------------------- Scroll Indicator Chevron -------------------- */
+.scroll-indicator {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    z-index: 1;
+}
+
+/* Chevron Bounce Animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-7px);
+    }
+}
+
+.chevron-bounce {
+    animation: bounce 2s infinite;
+}
+
+/* -------------------- Subpage Hero Sections (About Us, Services, Staff, Contact) -------------------- */
+.hero-subpage {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* color: var(--text-light); - This color is handled by the content card now */
+    padding-top: 150px;
+    padding-bottom: 80px;
+    overflow: hidden;
+}
+
+/* About Us specific hero background */
+#about-us.hero-subpage { /* Targeting the specific ID */
+    background-image: url('../img/about-us/About Us.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* Section background scrolls */
+}
+
+/* Services specific hero background */
+#services.hero-subpage { /* Targeting the specific ID */
+    background-image: url('../img/services/Services.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* Section background scrolls */
+}
+
+/* Staff specific hero background */
+#staff.hero-subpage { /* Targeting the specific ID */
+    background-image: url('../img/staff.jpg'); /* Using the staff.jpg image with an overlay */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* Section background scrolls */
+    color: var(--text-light); /* Ensure text is readable */
+}
+
+/* Contact specific hero background */
+#contact.contact-hero-section { /* Targeting the specific ID */
+    background-image: url('../img/contact/contact.jpg');
+    background-size: cover;
+    background-position: center 20%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+
+/* Wrapper for content within subpage heroes, similar to contact-cards-wrapper */
+.subpage-hero-content-wrapper {
+    display: flex;
+    gap: 40px; /* Adjust gap as needed */
+    align-items: flex-start; /* Align items to the start of the cross axis (top) */
+    justify-content: center; /* Center content horizontally */
+    z-index: 1;
+    max-width: 1000px; /* Match max-width of contact-cards-wrapper */
+    width: 90%;
+    margin-bottom: 50px; /* Add some space below the content wrapper */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.hero-subpage-content {
+    z-index: 1;
+    flex: 1;
+    min-width: 350px;
+    padding: 30px;
+    text-align: center;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px var(--shadow-light);
+}
+
+/* UPDATED: Corrected colors for text within the light glassmorphism card */
+.hero-subpage h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-dark); /* Changed to dark for readability on light glass card */
+    text-shadow: none; /* Removed shadow */
+}
+
+.hero-subpage p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #444; /* Changed to dark for readability on light glass card */
+    text-shadow: none; /* Removed shadow */
+}
+
+/* Reusing gradient-ribbon for subpage hero as well */
+.hero-subpage .gradient-ribbon {
+    top: 60%;
+    height: 80vh;
+    transform: translate(-50%, -50%) rotate(5deg);
+    opacity: 0.6;
+}
+
+
+/* -------------------- General Section Styling -------------------- */
+.section-padding {
+    padding: 100px 0;
+}
+
+.bg-light {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px var(--shadow-light);
+}
+
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #222;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: #666; /* Changed to #666 for better visibility on light backgrounds */
+    text-align: center;
+    max-width: 800px;
+    margin: -30px auto 80px auto;
+}
+
+/* -------------------- About Us Section Content -------------------- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.about-text-content h2 {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+}
+
+.about-text-content p {
+    font-size: 1.05rem;
+    color: #444; /* Adjusted for better contrast on light backgrounds */
+    margin-bottom: 15px;
+}
+
+.about-text-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Values Section (Used in About Us) */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.value-item {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px var(--shadow-light);
+    overflow: hidden;
+}
+
+.value-item i {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.value-item:hover i {
+    transform: translateY(-5px);
+}
+
+.value-item h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.value-item p {
+    font-size: 0.95rem;
+    color: #555; /* Adjusted for better contrast on light backgrounds */
+}
+
+/* -------------------- Services Section Content -------------------- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.service-card {
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 280px;
+}
+
+.service-card .service-icon {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1);
+}
+
+.service-card h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.service-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* -------------------- Staff Section Content -------------------- */
+.team-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.team-card {
+    text-align: center;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.team-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.team-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
+.team-card p { /* For the role */
+    font-size: 0.95rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    color: #888;
+    font-size: 1.3rem;
+    margin: 0 8px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 40px;
+}
+
+/* -------------------- Contact Section Content -------------------- */
+.contact-cards-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 1;
+    max-width: 1000px;
+    width: 90%;
+    margin-bottom: 50px;
+}
+
+.contact-info-card {
+    flex: 1;
+    min-width: 350px;
+    padding: 40px;
+    text-align: left;
+    height: fit-content;
+}
+
+.contact-info-card h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+    text-align: left;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.contact-detail i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-right: 15px;
+    width: 25px;
+    text-align: center;
+}
+
+.contact-detail span {
+    flex-grow: 1;
+}
+
+.map-card {
+    flex: 1.5;
+    min-width: 450px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+}
+
+.map-card iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.get-directions-btn {
+    width: fit-content;
+    padding: 12px 30px;
+    font-size: 1rem;
+}
+
+.get-directions-btn i {
+    margin-right: 10px;
+}
+
+/* -------------------- Global Footer -------------------- */
+.global-slogan-footer {
+    position: relative; /* Changed from absolute to relative */
+    bottom: unset;
+    left: unset;
+    transform: unset;
+    width: 100%;
+    text-align: center;
+    padding: 30px 20px; /* Add vertical padding */
+    z-index: 1;
+    margin-top: 50px; /* Added margin-top to separate from content above */
+    background-color: #2c3e50; /* Add a background for the footer */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.global-slogan-footer p {
+    color: #eee;
+    font-size: 1.1rem;
+    font-style: italic;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+
+/* -------------------- Responsive Design -------------------- */
+@media (max-width: 992px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        max-width: 90%; /* Adjusted for better spacing on tablets */
+    }
+
+    .hero-text-content, .trusted-members-box {
+        text-align: center;
+        max-width: 90%;
+        width: 100%; /* Ensure they take full width when stacked */
+        padding: 25px; /* Slightly less padding on smaller screens */
+    }
+
+    .hero-text-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-text-content p {
+        font-size: 1.1rem;
+    }
+
+    .trusted-members-box {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    /* Subpage hero responsive */
+    .hero-subpage h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-subpage p {
+        font-size: 1rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .about-image {
+        order: -1;
+    }
+
+    .about-text-content h2 {
+        text-align: center;
+    }
+
+    .section-padding {
+        padding: 80px 0;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .section-description {
+        margin: -20px auto 60px auto;
+    }
+
+    .values-grid, .team-card-container, .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    /* Responsive adjustments for Contact page & Subpage hero wrapper */
+    .contact-cards-wrapper, .subpage-hero-content-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-top: 0;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .contact-hero-section, .hero-subpage {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 120px;
+        padding-bottom: 60px;
+    }
+
+    .contact-info-card, .map-card, .hero-subpage-content {
+        min-width: unset;
+        width: 90%;
+        max-width: 600px;
+    }
+
+    .map-card iframe {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        width: 95%;
+        padding: 10px 20px;
+        top: 10px;
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links on smaller screens; consider adding a hamburger menu if desired */
+        gap: 15px;
+    }
+
+    .nav-content {
+        justify-content: center;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .btn-join {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .hero-text-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-text-content p {
+        font-size: 1rem;
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .trusted-members-box {
+        padding: 20px;
+        min-width: unset;
+    }
+
+    .trusted-members-box h2 {
+        font-size: 1.3rem;
+    }
+
+    /* Subpage hero responsive */
+    .hero-subpage {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+
+    .hero-subpage h1 {
+        font-size: 2rem;
+    }
+
+    .hero-subpage p {
+        font-size: 0.9rem;
+    }
+
+    .about-image img {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .value-item, .team-card, .service-card {
+        padding: 20px;
+    }
+
+    .service-card .service-icon {
+        font-size: 3.5rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.4rem;
+    }
+
+    /* Responsive adjustments for global footer */
+    .global-slogan-footer {
+        padding: 20px 15px;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text-content h1 {
+        font-size: 1.8rem;
+    }
+    .hero-text-content p {
+        font-size: 0.9rem;
+    }
+
+    /* Subpage hero responsive */
+    h2 {
+        font-size: 1.8rem;
+    }
+    .section-description {
+        font-size: 0.9rem;
+    }
+
+    .value-item i {
+        font-size: 3rem;
+    }
+    .value-item h3 {
+        font-size: 1.2rem;
+    }
+    .team-card h3 {
+        font-size: 1.3rem;
+    }
+    .team-card img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .service-card .service-icon {
+        font-size: 3rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.2rem;
+    }
+}
