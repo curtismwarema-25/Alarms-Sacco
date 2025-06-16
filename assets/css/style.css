@@ -84,7 +84,7 @@ body.no-scroll {
 
 .nav-content {
     display: flex;
-    /* Removed justify-content: flex-start; to allow auto margins below to work */
+    justify-content: space-between; /* This is the key change! */
     align-items: center;
     width: 100%;
 }
@@ -93,8 +93,7 @@ body.no-scroll {
 .nav-content nav {
     display: flex; /* Make nav itself a flex container for its ul */
     justify-content: center; /* Center its children (nav-links) horizontally */
-    margin-left: auto; /* Pushes the nav element as far right as possible from the logo */
-    margin-right: auto; /* Pushes the nav element as far left as possible from the .desktop-only-btn */
+    /* Removed auto margins here as justify-content: space-between on parent handles spacing */
 }
 
 
@@ -204,7 +203,7 @@ body.no-scroll {
 /* NEW: Hide desktop-only button on mobile, show mobile-only button within nav */
 .desktop-only-btn {
     display: inline-block; /* Default for desktop */
-    margin-left: auto; /* Push button to the far right on desktop */
+    /* Removed margin-left: auto; here as it's now handled by parent's justify-content */
 }
 
 .mobile-only-btn {
@@ -354,7 +353,7 @@ body.no-scroll {
 
 .trusted-members-box .since {
     font-size: 0.9rem;
-    color: var(--text-dark); /* Changed to dark for readability on light glass card */
+    color: var(--text-light); /* Changed to dark for readability on light glass card */
     margin-top: 20px;
 }
 
@@ -499,7 +498,7 @@ body.no-scroll {
     font-size: 1.2rem;
     max-width: 700px;
     margin: 0 auto;
-    color: var(--text-light); 
+    color: var(--text-light);
     text-shadow: none; 
 }
 
@@ -530,14 +529,14 @@ body.no-scroll {
 h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--text-dark); /* Ensure headings are dark on light backgrounds */
+    color: var(--text-dark);
     text-align: center;
     margin-bottom: 40px;
 }
 
 .section-description {
     font-size: 1.1rem;
-    color: var(--text-light); /* Changed to dark for better visibility on light backgrounds */
+    color: var(--text-light);
     text-align: center;
     max-width: 800px;
     margin: -30px auto 50px auto; /* Reduced margin-bottom from 80px to 50px */
@@ -567,7 +566,7 @@ h2 {
 
 .about-text-content p {
     font-size: 1.05rem;
-    color: var(--text-light); /* Adjusted for better contrast on light backgrounds */
+    color: var(--text-light);
     margin-bottom: 15px;
 }
 
@@ -666,7 +665,7 @@ h2 {
 
 .service-card p {
     font-size: 1rem;
-    color: var(--text-light); /* Ensure text is dark on light glass cards */
+    color: var(--text-light);
     margin-bottom: 25px;
     flex-grow: 1;
 }
@@ -711,7 +710,7 @@ h2 {
 
 .team-card p { /* For the role */
     font-size: 0.95rem;
-    color: var(--text-light); /* Ensure text is dark on light glass cards */
+    color: var(--text-light);
     margin-bottom: 15px;
 }
 
@@ -758,7 +757,7 @@ h2 {
     font-size: 2.2rem;
     font-weight: 700;
     margin-bottom: 30px;
-    color: var(--text-dark); /* Ensure text is dark on light glass cards */
+    color: var(--text-dark);
     text-align: left;
 }
 
@@ -767,7 +766,7 @@ h2 {
     align-items: center;
     margin-bottom: 20px;
     font-size: 1.1rem;
-    color: var(--text-light); /* Ensure text is dark on light glass cards */
+    color: var(--text-light);
 }
 
 .contact-detail i {
@@ -941,14 +940,17 @@ h2 {
 
 @media (max-width: 768px) {
     .navbar {
-        width: 95%;
-        padding: 10px 20px;
-        top: 10px;
+        width: 100%;
+        /* background-color: #ffffff; */
+        padding: 15px 0;
+        /* top: 10px; */
     }
 
     /* Show hamburger menu */
     .hamburger-menu {
         display: flex;
+        margin-left: auto; /* Align hamburger to the right */
+        order: 2; /* Ensure hamburger is on the right side of the nav-content */
     }
 
     /* Fix: Ensure nav-content aligns logo left and hamburger right */
@@ -1097,7 +1099,7 @@ h2 {
     }
 
     /* Ensure that the dark-theme-active class does not interfere with the
-       mobile menu's text color, as it now has a static white background. */
+        mobile menu's text color, as it now has a static white background. */
     .navbar.dark-theme-active .nav-links .nav-link {
         color: var(--text-dark); /* Keep text dark on solid white background */
         text-shadow: none;
