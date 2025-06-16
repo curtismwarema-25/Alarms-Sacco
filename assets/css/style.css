@@ -13,6 +13,10 @@
     --button-text-light: #555;
     --button-bg-dark: #6a5acd; /* Example for JOIN button */
     --button-text-dark: #fff;
+
+    /* NEW: Variables for Hamburger Menu Bars */
+    --hamburger-bar-color: var(--text-dark); /* Default bar color */
+    --hamburger-bar-dark-theme-color: var(--text-light); /* Bar color in dark theme */
 }
 
 * {
@@ -24,7 +28,7 @@
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    color: var(--text-light);
+    color: var(--text-light); /* Default body text color, for elements not in cards */
     /* Default homepage background */
     background-image: url('../img/BG.jpg');
     background-size: cover;
@@ -32,6 +36,11 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     overflow-x: hidden;
+}
+
+/* NEW: Prevents body scroll when mobile menu is active */
+body.no-scroll {
+    overflow: hidden;
 }
 
 .container {
@@ -75,10 +84,19 @@ body {
 
 .nav-content {
     display: flex;
-    justify-content: space-between;
+    /* Removed justify-content: flex-start; to allow auto margins below to work */
     align-items: center;
     width: 100%;
 }
+
+/* NEW: Style for the <nav> element to center the links */
+.nav-content nav {
+    display: flex; /* Make nav itself a flex container for its ul */
+    justify-content: center; /* Center its children (nav-links) horizontally */
+    margin-left: auto; /* Pushes the nav element as far right as possible from the logo */
+    margin-right: auto; /* Pushes the nav element as far left as possible from the .desktop-only-btn */
+}
+
 
 .logo {
     font-size: 1.4rem;
@@ -92,6 +110,7 @@ body {
     list-style: none;
     display: flex;
     gap: 30px;
+    /* justify-content is handled by .nav-content nav now for desktop */
 }
 
 .nav-link {
@@ -114,9 +133,6 @@ body {
     transform: scale(1.05); /* Slightly expand */
 }
 
-/* Nav Link color switch on scroll (handled by JS adding .dark-theme-active to .navbar) */
-/* REMOVED: .nav-link.dark-mode-nav */
-
 /* Ensure active link on the current page is distinct */
 .nav-link.active {
     color: var(--primary-color);
@@ -124,6 +140,12 @@ body {
 }
 
 /* NEW: Styles when navbar is over a dark section (JavaScript adds .dark-theme-active) */
+.navbar.dark-theme-active {
+    background: rgba(0, 0, 0, 0.4); /* Darker, slightly more opaque glass for dark theme */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
 .navbar.dark-theme-active .logo {
     color: var(--nav-link-dark-color); /* White text for logo on dark sections */
 }
@@ -140,6 +162,53 @@ body {
 
 .navbar.dark-theme-active .nav-links .nav-link.active {
     color: var(--primary-color); /* Active link remains primary */
+}
+
+/* NEW: Hamburger Menu Styles */
+.hamburger-menu {
+    display: none; /* Hidden by default on desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's on top */
+}
+
+.hamburger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--hamburger-bar-color); /* Default bar color */
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger menu active state (transforms to 'X') */
+.hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* Dark theme adjustments for Hamburger bars */
+.navbar.dark-theme-active .hamburger-menu .bar {
+    background-color: var(--hamburger-bar-dark-theme-color);
+}
+
+/* NEW: Hide desktop-only button on mobile, show mobile-only button within nav */
+.desktop-only-btn {
+    display: inline-block; /* Default for desktop */
+    margin-left: auto; /* Push button to the far right on desktop */
+}
+
+.mobile-only-btn {
+    display: none; /* Hidden by default for desktop */
 }
 
 
@@ -273,7 +342,7 @@ body {
 
 .trusted-members-box ul li {
     font-size: 1rem;
-    color: #ffffff;
+    color: var(--text-light); /* Changed to dark for readability on light glass card */
     padding: 5px 0;
 }
 
@@ -285,7 +354,7 @@ body {
 
 .trusted-members-box .since {
     font-size: 0.9rem;
-    color: #ffffff;
+    color: var(--text-dark); /* Changed to dark for readability on light glass card */
     margin-top: 20px;
 }
 
@@ -348,47 +417,44 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* color: var(--text-light); - This color is handled by the content card now */
     padding-top: 120px; /* Reduced from 150px */
     padding-bottom: 60px; /* Reduced from 80px */
     overflow: hidden;
 }
 
-/* About Us specific hero background */
-#about-us.hero-subpage { /* Targeting the specific ID */
-    /* background-image: url('../img/about-us/about-us.jpg'); */
+/* Add dark-section to hero-subpages that should trigger dark navbar theme on scroll */
+#about-us.hero-subpage,
+#services.hero-subpage,
+#staff.hero-subpage,
+#contact.contact-hero-section {
+    
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll; /* Section background scrolls */
+}
+
+
+/* About Us specific hero background */
+#about-us.hero-subpage { /* Targeting the specific ID */
+    /* background-image: url('../img/about-us/about-us.jpg'); */
 }
 
 /* Services specific hero background */
 #services.hero-subpage { /* Targeting the specific ID */
-    background-image: url('../img/services/Services.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll; /* Section background scrolls */
+    background-image: url('../img/services.jpg');
 }
 
 /* Staff specific hero background */
-#staff.hero-subpage { 
-    background-image: url('../img/TEAM.jpg'); 
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll; /* Section background scrolls */
+#staff.hero-subpage {
+    background-image: url('../img/TEAM.jpg');
     color: var(--text-light); /* Ensure text is readable */
 }
 
 /* Contact specific hero background */
-#contact.contact-hero-section { /* Targeting the specific ID */
+#contact.contact-hero-section {
     /* background-image: url('../img/contact/contact.jpg'); */
-    background-size: cover;
     background-position: center 20%;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
 }
 
 
@@ -417,23 +483,24 @@ body {
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     box-shadow: 0 8px 32px var(--shadow-light);
+    overflow: hidden;
 }
 
 /* UPDATED: Corrected colors for text within the light glassmorphism card */
-.hero-subpage h1 {
+.hero-subpage-content h1 { /* Changed selector from .hero-subpage h1 to target specific content */
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 10px;
-    color: var(--text-dark); 
-    text-shadow: none; 
+    color: var(--text-dark); /* Ensure text is dark on the light glassmorphism card */
+    text-shadow: none;
 }
 
-.hero-subpage p {
+.hero-subpage-content p { 
     font-size: 1.2rem;
     max-width: 700px;
     margin: 0 auto;
-    color: #ffffff; /* Changed to dark for readability on light glass card */
-    text-shadow: none; /* Removed shadow */
+    color: var(--text-light); 
+    text-shadow: none; 
 }
 
 /* Reusing gradient-ribbon for subpage hero as well */
@@ -447,7 +514,7 @@ body {
 
 /* -------------------- General Section Styling -------------------- */
 .section-padding {
-    padding: 60px 0; /* Reduced from 100px */
+    padding: 60px 0;
 }
 
 .bg-light {
@@ -463,14 +530,14 @@ body {
 h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #222;
+    color: var(--text-dark); /* Ensure headings are dark on light backgrounds */
     text-align: center;
     margin-bottom: 40px;
 }
 
 .section-description {
     font-size: 1.1rem;
-    color: #ffffff; /* Changed to #666 for better visibility on light backgrounds */
+    color: var(--text-light); /* Changed to dark for better visibility on light backgrounds */
     text-align: center;
     max-width: 800px;
     margin: -30px auto 50px auto; /* Reduced margin-bottom from 80px to 50px */
@@ -500,7 +567,7 @@ h2 {
 
 .about-text-content p {
     font-size: 1.05rem;
-    color: #ffffff; /* Adjusted for better contrast on light backgrounds */
+    color: var(--text-light); /* Adjusted for better contrast on light backgrounds */
     margin-bottom: 15px;
 }
 
@@ -551,15 +618,15 @@ h2 {
 
 .value-item p {
     font-size: 0.95rem;
-    color: #ffffff; 
+    color: var(--text-light);
 }
 
 /* -------------------- Services Section Content -------------------- */
 .services-details-section {
-    width: 100%; 
-    max-width: unset; 
-    padding: 60px 20px; 
-    margin: 0 auto; 
+    width: 100%;
+    max-width: unset;
+    padding: 60px 20px;
+    margin: 0 auto;
 }
 
 .services-grid {
@@ -599,7 +666,7 @@ h2 {
 
 .service-card p {
     font-size: 1rem;
-    color: #ffffff;
+    color: var(--text-light); /* Ensure text is dark on light glass cards */
     margin-bottom: 25px;
     flex-grow: 1;
 }
@@ -616,7 +683,7 @@ h2 {
 .team-card {
     text-align: center;
     padding: 25px;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.4); /* Already set to glassmorphism style */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -644,7 +711,7 @@ h2 {
 
 .team-card p { /* For the role */
     font-size: 0.95rem;
-    color: #ffffff;
+    color: var(--text-light); /* Ensure text is dark on light glass cards */
     margin-bottom: 15px;
 }
 
@@ -691,7 +758,7 @@ h2 {
     font-size: 2.2rem;
     font-weight: 700;
     margin-bottom: 30px;
-    color: var(--text-dark);
+    color: var(--text-dark); /* Ensure text is dark on light glass cards */
     text-align: left;
 }
 
@@ -700,7 +767,7 @@ h2 {
     align-items: center;
     margin-bottom: 20px;
     font-size: 1.1rem;
-    color: #ffffff;
+    color: var(--text-light); /* Ensure text is dark on light glass cards */
 }
 
 .contact-detail i {
@@ -879,13 +946,79 @@ h2 {
         top: 10px;
     }
 
-    .nav-links {
-        display: none; /* Hide nav links on smaller screens; consider adding a hamburger menu if desired */
-        gap: 15px;
+    /* Show hamburger menu */
+    .hamburger-menu {
+        display: flex;
     }
 
+    /* Fix: Ensure nav-content aligns logo left and hamburger right */
     .nav-content {
-        justify-content: center;
+        justify-content: space-between; /* Changed from center to space-between */
+    }
+
+    /* Hide desktop nav links and desktop join button */
+    .nav-links {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column; /* Stack links vertically */
+        /* Removed glassmorphism properties, using solid white background */
+        background: #ffffff; /* Solid white background */
+        backdrop-filter: none; /* Removed blur */
+        -webkit-backdrop-filter: none; /* Removed blur */
+        border: 1px solid rgba(0, 0, 0, 0.1); /* Lighter border for clean look */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        
+        position: absolute;
+        top: 100%; /* Position below the navbar */
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+        overflow: hidden; /* Hide overflow during animation */
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        transform: translateY(-10px); /* Start slightly up for animation */
+        opacity: 0;
+        pointer-events: none; /* Disable interaction when hidden */
+        z-index: 999; /* Ensure it's below the hamburger but above page content */
+        border-radius: 0 0 20px 20px; /* Rounded bottom corners for dropdown */
+    }
+
+    /* Active state for mobile menu */
+    .nav-links.active {
+        display: flex; /* Show when active */
+        transform: translateY(0); /* Animate into place */
+        opacity: 1;
+        pointer-events: all; /* Enable interaction when active */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .nav-links .nav-link { /* Target links inside the mobile menu */
+        font-size: 1.1rem;
+        padding: 10px 15px; /* More tap-friendly area */
+        display: block; /* Make the whole link block clickable */
+        width: 100%;
+        color: var(--text-dark); /* Ensure readable on solid white background */
+    }
+
+    .nav-links .nav-link:hover {
+        background-color: rgba(0, 123, 255, 0.05); /* Light highlight on hover */
+        border-radius: 5px;
+    }
+
+    /* No underline animation for mobile links */
+    .nav-links .nav-link::after {
+        display: none;
+    }
+
+    .desktop-only-btn {
+        display: none; /* Hide desktop join button */
+    }
+
+    .mobile-only-btn {
+        display: inline-block; /* Show mobile join button */
+        margin-top: 20px; /* Space it out from other links in menu */
     }
 
     .logo {
@@ -961,6 +1094,13 @@ h2 {
     /* Services section full width adjustment for responsive */
     .services-details-section {
         padding: 40px 10px; /* Adjust padding for smaller screens */
+    }
+
+    /* Ensure that the dark-theme-active class does not interfere with the
+       mobile menu's text color, as it now has a static white background. */
+    .navbar.dark-theme-active .nav-links .nav-link {
+        color: var(--text-dark); /* Keep text dark on solid white background */
+        text-shadow: none;
     }
 }
 
