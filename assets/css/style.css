@@ -24,9 +24,9 @@
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    color: var(--text-dark);
+    color: var(--text-light);
     /* Default homepage background */
-    background-image: url('../img/homepage/homepage.png');
+    background-image: url('../img/BG.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -197,8 +197,8 @@ body {
     align-items: center;
     text-align: center;
     overflow: hidden;
-    padding-top: 150px; /* Space for fixed navbar */
-    padding-bottom: 80px;
+    padding-top: 120px; /* Space for fixed navbar - Reduced from 150px */
+    padding-bottom: 60px; /* Reduced from 80px */
 }
 
 .hero-container {
@@ -228,16 +228,16 @@ body {
 }
 
 .hero-text-content h1 {
-    font-size: 3.5rem;
+    font-size: 4.0rem;
     font-weight: 700;
     margin-bottom: 20px;
     line-height: 1.2;
-    color: #222;
+    color: #ffffff;
 }
 
 .hero-text-content p {
     font-size: 1.1rem;
-    color: #666;
+    color: #ffffff;
     margin-bottom: 30px;
     max-width: 500px;
 }
@@ -273,7 +273,7 @@ body {
 
 .trusted-members-box ul li {
     font-size: 1rem;
-    color: #444;
+    color: #ffffff;
     padding: 5px 0;
 }
 
@@ -285,7 +285,7 @@ body {
 
 .trusted-members-box .since {
     font-size: 0.9rem;
-    color: #777;
+    color: #ffffff;
     margin-top: 20px;
 }
 
@@ -349,14 +349,14 @@ body {
     justify-content: center;
     text-align: center;
     /* color: var(--text-light); - This color is handled by the content card now */
-    padding-top: 150px;
-    padding-bottom: 80px;
+    padding-top: 120px; /* Reduced from 150px */
+    padding-bottom: 60px; /* Reduced from 80px */
     overflow: hidden;
 }
 
 /* About Us specific hero background */
 #about-us.hero-subpage { /* Targeting the specific ID */
-    background-image: url('../img/about-us/About Us.jpg');
+    /* background-image: url('../img/about-us/about-us.jpg'); */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -374,7 +374,7 @@ body {
 
 /* Staff specific hero background */
 #staff.hero-subpage { /* Targeting the specific ID */
-    background-image: url('../img/staff.jpg'); /* Using the staff.jpg image with an overlay */
+    background-image: url('../img/TEAM.jpg'); /* Using the staff.jpg image with an overlay */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -384,7 +384,7 @@ body {
 
 /* Contact specific hero background */
 #contact.contact-hero-section { /* Targeting the specific ID */
-    background-image: url('../img/contact/contact.jpg');
+    /* background-image: url('../img/contact/contact.jpg'); */
     background-size: cover;
     background-position: center 20%;
     background-repeat: no-repeat;
@@ -432,7 +432,7 @@ body {
     font-size: 1.2rem;
     max-width: 700px;
     margin: 0 auto;
-    color: #444; /* Changed to dark for readability on light glass card */
+    color: #ffffff; /* Changed to dark for readability on light glass card */
     text-shadow: none; /* Removed shadow */
 }
 
@@ -447,7 +447,7 @@ body {
 
 /* -------------------- General Section Styling -------------------- */
 .section-padding {
-    padding: 100px 0;
+    padding: 60px 0; /* Reduced from 100px */
 }
 
 .bg-light {
@@ -470,10 +470,10 @@ h2 {
 
 .section-description {
     font-size: 1.1rem;
-    color: #666; /* Changed to #666 for better visibility on light backgrounds */
+    color: #ffffff; /* Changed to #666 for better visibility on light backgrounds */
     text-align: center;
     max-width: 800px;
-    margin: -30px auto 80px auto;
+    margin: -30px auto 50px auto; /* Reduced margin-bottom from 80px to 50px */
 }
 
 /* -------------------- About Us Section Content -------------------- */
@@ -500,7 +500,7 @@ h2 {
 
 .about-text-content p {
     font-size: 1.05rem;
-    color: #444; /* Adjusted for better contrast on light backgrounds */
+    color: #ffffff; /* Adjusted for better contrast on light backgrounds */
     margin-bottom: 15px;
 }
 
@@ -551,10 +551,17 @@ h2 {
 
 .value-item p {
     font-size: 0.95rem;
-    color: #555; /* Adjusted for better contrast on light backgrounds */
+    color: #ffffff; /* Adjusted for better contrast on light backgrounds */
 }
 
 /* -------------------- Services Section Content -------------------- */
+.services-details-section {
+    width: 100%; /* Make it span the entire width */
+    max-width: unset; /* Remove max-width constraint */
+    padding: 60px 20px; /* Adjust padding to maintain some inner spacing */
+    margin: 0 auto; /* Center it */
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -592,7 +599,7 @@ h2 {
 
 .service-card p {
     font-size: 1rem;
-    color: #555;
+    color: #ffffff;
     margin-bottom: 25px;
     flex-grow: 1;
 }
@@ -637,7 +644,7 @@ h2 {
 
 .team-card p { /* For the role */
     font-size: 0.95rem;
-    color: #777;
+    color: #ffffff;
     margin-bottom: 15px;
 }
 
@@ -693,7 +700,7 @@ h2 {
     align-items: center;
     margin-bottom: 20px;
     font-size: 1.1rem;
-    color: #444;
+    color: #ffffff;
 }
 
 .contact-detail i {
@@ -746,7 +753,7 @@ h2 {
     text-align: center;
     padding: 30px 20px; /* Add vertical padding */
     z-index: 1;
-    margin-top: 50px; /* Added margin-top to separate from content above */
+    margin-top: 30px; /* Reduced from 50px */
     background-color: #2c3e50; /* Add a background for the footer */
     color: #fff;
     display: flex;
@@ -816,7 +823,7 @@ h2 {
     }
 
     .section-padding {
-        padding: 80px 0;
+        padding: 50px 0; /* Reduced further for responsiveness */
     }
 
     h2 {
@@ -825,7 +832,7 @@ h2 {
     }
 
     .section-description {
-        margin: -20px auto 60px auto;
+        margin: -20px auto 40px auto; /* Reduced further for responsiveness */
     }
 
     .values-grid, .team-card-container, .services-grid {
@@ -845,8 +852,8 @@ h2 {
     .contact-hero-section, .hero-subpage {
         height: auto;
         min-height: 100vh;
-        padding-top: 120px;
-        padding-bottom: 60px;
+        padding-top: 100px; /* Adjusted for responsive hero sections */
+        padding-bottom: 50px; /* Adjusted for responsive hero sections */
     }
 
     .contact-info-card, .map-card, .hero-subpage-content {
@@ -857,6 +864,11 @@ h2 {
 
     .map-card iframe {
         height: 300px;
+    }
+
+    /* Services section full width adjustment for responsive */
+    .services-details-section {
+        padding: 50px 15px; /* Adjust padding for smaller screens */
     }
 }
 
@@ -911,8 +923,8 @@ h2 {
     .hero-subpage {
         height: auto;
         min-height: 100vh;
-        padding-top: 100px;
-        padding-bottom: 50px;
+        padding-top: 80px; /* Further adjusted for responsive hero sections */
+        padding-bottom: 40px; /* Further adjusted for responsive hero sections */
     }
 
     .hero-subpage h1 {
@@ -943,7 +955,12 @@ h2 {
     /* Responsive adjustments for global footer */
     .global-slogan-footer {
         padding: 20px 15px;
-        margin-top: 30px;
+        margin-top: 20px; /* Further reduced */
+    }
+
+    /* Services section full width adjustment for responsive */
+    .services-details-section {
+        padding: 40px 10px; /* Adjust padding for smaller screens */
     }
 }
 
@@ -961,6 +978,7 @@ h2 {
     }
     .section-description {
         font-size: 0.9rem;
+        margin: -15px auto 30px auto; /* Even tighter spacing */
     }
 
     .value-item i {
@@ -983,5 +1001,10 @@ h2 {
 
     .service-card h3 {
         font-size: 1.2rem;
+    }
+
+    /* Services section full width adjustment for responsive */
+    .services-details-section {
+        padding: 30px 10px; /* Adjust padding for very small screens */
     }
 }
