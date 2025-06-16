@@ -373,8 +373,8 @@ body {
 }
 
 /* Staff specific hero background */
-#staff.hero-subpage { /* Targeting the specific ID */
-    background-image: url('../img/TEAM.jpg'); /* Using the staff.jpg image with an overlay */
+#staff.hero-subpage { 
+    background-image: url('../img/TEAM.jpg'); 
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -424,8 +424,8 @@ body {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 10px;
-    color: var(--text-dark); /* Changed to dark for readability on light glass card */
-    text-shadow: none; /* Removed shadow */
+    color: var(--text-dark); 
+    text-shadow: none; 
 }
 
 .hero-subpage p {
@@ -551,15 +551,15 @@ h2 {
 
 .value-item p {
     font-size: 0.95rem;
-    color: #ffffff; /* Adjusted for better contrast on light backgrounds */
+    color: #ffffff; 
 }
 
 /* -------------------- Services Section Content -------------------- */
 .services-details-section {
-    width: 100%; /* Make it span the entire width */
-    max-width: unset; /* Remove max-width constraint */
-    padding: 60px 20px; /* Adjust padding to maintain some inner spacing */
-    margin: 0 auto; /* Center it */
+    width: 100%; 
+    max-width: unset; 
+    padding: 60px 20px; 
+    margin: 0 auto; 
 }
 
 .services-grid {
