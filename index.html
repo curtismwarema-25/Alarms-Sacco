@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALARM SACCO - Your Financial Partner</title>
+    <title>ALARMS SACCO - Your Financial Partner</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- For smooth scrolling -->
     <style>
         html {
             scroll-behavior: smooth;
@@ -16,30 +17,31 @@
     </style>
 </head>
 <body>
-    <header class="navbar" id="navbar">
+    <header class="navbar">
         <div class="container nav-content">
-            <a href="#home" class="logo">ALARM SACCO</a>
-    
-            <div class="hamburger-menu" id="hamburger-menu">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-    
+            <a href="#home" class="logo">ALARMS SACCO</a>
             <nav>
                 <ul class="nav-links" id="nav-links">
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about-us" class="nav-link">About Us</a></li>
                     <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="loans-detailed.html" class="nav-link">Loans</a></li>
                     <li><a href="#staff" class="nav-link">Staff</a></li>
+                    <li><a href="news-events.html" class="nav-link">News & Events</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
-                    <!-- <li><a href="https://portal.alarmsacco.co.ke/newmember" class="btn btn-join mobile-only-btn">JOIN</a></li> -->
+
+                     <li class="mobile-only-btn-wrapper"><a href="join.html" class="btn btn-join mobile-only-btn">JOIN</a></li>
                 </ul>
             </nav>
-    
-            <div class="desktop-only-btn">
-                 <a href="https://portal.alarmsacco.co.ke/newmember" class="btn btn-join">JOIN</a>
-            </div>
+
+            <div class="hamburger-menu" id="hamburger-menu">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
+
+            <a href="https://portal.alarmsacco.co.ke/newmember" class="btn btn-join desktop-only-btn">JOIN</a>
         </div>
     </header>
 
@@ -59,7 +61,7 @@
                     <li>Flexible savings plans</li>
                     <li>Secure mobile access</li>
                 </ul>
-                <p class="since">Serving communities since 1994</p>
+                <p class="since">Serving communities since 1990</p>
             </div>
         </div>
 
@@ -71,17 +73,14 @@
     </section>
 
     <main>
+        <!-- About Us Section -->
         <section id="about-us" class="hero-subpage about-hero">
             <div class="gradient-ribbon"></div>
             <div class="subpage-hero-content-wrapper container">
                 <div class="hero-subpage-content glassmorphism">
-                    <h1>About ALARM SACCO</h1>
-                    <p>
-                        ALARMS NON-NWDT SACCO LTD is a member-driven cooperative society originally founded to serve security guards and factory personnel.
-                        What began as a focused financial solution for a specific sector has since grown into a dynamic and inclusive SACCO, open to members from various industries.
-                        With a strong foundation in cooperative values and financial empowerment, ALARMS SACCO continues to support its members through savings, credit facilities, and financial education.
-                        The society remains firmly grounded in its goal to enhance the welfare and economic prosperity of all members.
-                    </p>
+                    <h1>About ALARMS SACCO</h1>
+                    <p>Dedicated to fostering financial empowerment and stability within our community since 1990.</p>
+                    <a href="about-us-detailed.html" class="btn btn-primary mt-4">Learn More About Us</a>
                 </div>
             </div>
         </section>
@@ -92,13 +91,12 @@
                 <p class="section-description">ALARM SACCO has grown into a thriving institution, committed to providing accessible and beneficial financial solutions to our members.</p>
                 <div class="about-grid">
                     <div class="about-image">
-                        <img src="assets/img/TEAM.jpg" alt="ALARM SACCO Team">
+                        <img src="assets/img/about-us/collaborating.jpg" alt="ALARMS SACCO Team">
                     </div>
                     <div class="about-text-content">
-                        <p>Alarms NON-NWDT SACCO LTD traces its roots back to 1990, when it was first established to serve members from security and guard companies.
-                            Officially registered as a SACCO under the Co-operative Societies Act in 1994, it was born out of the need to provide a platform for financial empowerment, particularly for factory and security guards.
-                            Over time, our commitment to inclusivity and growth led us to expand our bond to include members from a wider catchment area such as Export Processing Zones (EPZs), contracted companies, and other security service providers.
-                            This evolution reflects our unwavering commitment to promoting the economic well-being and welfare of our members, regardless of their background or employer.</p>
+                        <p>Established in 1990 and later registered and licensed as a SACCO under the Co-operative Societies Act in 1994. It initially derived membership from Factory Guards and Security Guards Company, and has since expanded to include recruitment from a wider catchment area, including EPZ, Contracted Companies, and other Security Companies.</p>
+                        <p>Our journey has been marked by continuous learning, adaptation, and an unwavering commitment to our founding principles. We understand the unique financial needs of our community and strive to offer products and services that are not just competitive, but truly empowering.</p>
+                        <p>We are more than just a financial service provider; we are a community-driven organization that believes in the power of collective effort. Every member's success is our success, and we are dedicated to building long-lasting relationships based on trust, transparency, and mutual respect.</p>
                     </div>
                 </div>
             </div>
@@ -113,14 +111,12 @@
                     <div class="value-item glassmorphism">
                         <i class="fas fa-bullseye"></i>
                         <h3>Our Mission</h3>
-                        <p>Our mission is to mobilize savings and provide quality financial services and leadership that benefit all our members.
-                            We strive to create a supportive financial environment that fosters empowerment, self-reliance, and sustainable growth.</p>
+                        <p>To mobilize savings, offer quality financial services and leadership for the benefit of all members.</p>
                     </div>
                     <div class="value-item glassmorphism">
                         <i class="fas fa-eye"></i>
                         <h3>Our Vision</h3>
-                        <p>Our vision is to be the SACCO of choice for members’ financial needs.
-                            We aim to offer trusted and accessible financial solutions that help our members achieve their personal and economic goals.</p>
+                        <p>To be a SACCO of choice for members' financial needs.</p>
                     </div>
                 </div>
             </div>
@@ -132,39 +128,57 @@
                 <p class="section-description">Our operations are built on a foundation of strong principles that ensure mutual growth and trust.</p>
                 <div class="values-grid">
                     <div class="value-item glassmorphism">
-                        <i class="fas fa-handshake"></i>
-                        <h3>Teamwork</h3>
-                        <p>Working together to achieve common goals.</p>
-                    </div>
-                    <div class="value-item glassmorphism">
-                        <i class="fas fa-users"></i>
-                        <h3>Equality</h3>
-                        <p>Treating all members fairly and without discrimination.</p>
+                        <i class="fas fa-users-gear"></i>
+                        <h3>Team Work</h3>
+                        <p>Fostering collaboration and mutual support among members and staff to achieve shared goals.</p>
                     </div>
                     <div class="value-item glassmorphism">
                         <i class="fas fa-balance-scale"></i>
-                        <h3>Accountability</h3>
-                        <p>Taking responsibly for our actions and decisions.</p>
+                        <h3>Equality</h3>
+                        <p>Treating all members fairly and providing equal opportunities for financial growth.</p>
                     </div>
                     <div class="value-item glassmorphism">
-                        <i class="fas fa-glasses"></i>
-                        <h3>Transparency</h3>
-                        <p>Maintaining oppenness and accountability in all our dealings.</p>
+                        <i class="fas fa-award"></i>
+                        <h3>Quality Service Delivery</h3>
+                        <p>Commitment to providing high-standard, efficient, and reliable financial services.</p>
                     </div>
+                    <div class="value-item glassmorphism">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <h3>Transparency</h3>
+                        <p>Ensuring clear and open communication in all our processes and financial reporting.</p>
+                    </div>
+                    <div class="value-item glassmorphism">
+                        <i class="fas fa-handshake-angle"></i>
+                        <h3>Accountability</h3>
+                        <p>Taking responsibility for our actions and decisions, upholding trust with our members.</p>
+                    </div>
+                    <div class="value-item glassmorphism">
+                        <i class="fas fa-heart"></i>
+                        <h3>Respect</h3>
+                        <p>Valuing every individual and fostering an environment of mutual respect and dignity.</p>
+                    </div>
+                </div>
+                <!-- Added link to full About Us page for more detail -->
+                <div class="text-center mt-4">
+                    <a href="about-us-detailed.html" class="btn btn-primary">Discover All About Us</a>
                 </div>
             </div>
         </section>
 
+        <!-- Services Section -->
         <section id="services" class="hero-subpage services-hero">
             <div class="gradient-ribbon"></div>
             <div class="subpage-hero-content-wrapper container">
                 <div class="hero-subpage-content glassmorphism">
                     <h1>Our Comprehensive Services</h1>
                     <p>Designed to empower your financial journey, our services offer flexibility, security, and growth opportunities for every member.</p>
+                    <a href="services-detailed.html" class="btn btn-primary mt-4">Explore All Services</a>
                 </div>
             </div>
+        </section>
 
-            <div class="container section-padding services-details-section glassmorphism">
+        <section class="section-padding bg-light">
+            <div class="container">
                 <h2 class="text-center">Solutions Tailored for You</h2>
                 <p class="section-description">Explore our range of financial products and services, crafted to support your personal and business aspirations as a valued member.</p>
 
@@ -173,32 +187,42 @@
                         <i class="fas fa-hand-holding-heart service-icon"></i>
                         <h3>Member Deposits & Shares</h3>
                         <p>Build your financial stake in the SACCO with regular deposits and share contributions. These form the foundation of your membership and provide access to our full range of benefits.</p>
-                        </div>
+                        <a href="services-detailed.html#savings-deposits" class="btn btn-primary btn-small">Learn More</a>
+                    </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-hand-holding-usd service-icon"></i>
                         <h3>Development Loans</h3>
                         <p>Access a variety of loans designed to help you achieve your personal and business goals, such as education, home improvement, business expansion, or asset acquisition. Enjoy competitive interest rates and flexible repayment terms.</p>
-                        </div>
+                        <a href="loans-detailed.html#development-instant-loans" class="btn btn-primary btn-small">Apply for Loan</a>
+                    </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-piggy-bank service-icon"></i>
                         <h3>FOSA Savings Accounts</h3>
                         <p>Benefit from convenient Front Office Service Activity (FOSA) accounts for easy deposits, withdrawals, and mobile banking. Manage your daily finances with the security and accessibility of a SACCO.</p>
-                        </div>
+                        <a href="services-detailed.html#savings-deposits" class="btn btn-primary btn-small">Open Account</a>
+                    </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-seedling service-icon"></i>
                         <h3>Investment & Welfare Funds</h3>
                         <p>Participate in specialized funds designed for long-term growth and member welfare. These include long-term investment schemes and welfare benefits like benevolent funds.</p>
-                        </div>
+                        <a href="services-detailed.html#other-services" class="btn btn-primary btn-small">Explore Funds</a>
+                    </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-wallet service-icon"></i>
                         <h3>Guaranteed Loans (BOSA)</h3>
                         <p>Utilize our Back Office Service Activity (BOSA) for secured loans, often guaranteed by member deposits or fellow members, allowing for larger loan amounts based on your savings and guarantees.</p>
-                        </div>
+                        <a href="loans-detailed.html#development-instant-loans" class="btn btn-primary btn-small">View Loan Options</a>
+                    </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-money-check-alt service-icon"></i>
                         <h3>Financial Advisory</h3>
                         <p>Receive personalized guidance on managing your finances, saving strategies, and investment opportunities within the SACCO, helping you make informed decisions for your financial well-being.</p>
-                        </div>
+                        <a href="services-detailed.html#other-services" class="btn btn-primary btn-small">Get Advice</a>
+                    </div>
+                </div>
+                <!-- Added link to full Services page for more detail -->
+                <div class="text-center mt-4">
+                    <a href="services-detailed.html" class="btn btn-primary">View All Services</a>
                 </div>
             </div>
         </section>
@@ -211,12 +235,14 @@
             </div>
         </section>
 
+        <!-- Staff Section -->
         <section id="staff" class="hero-subpage staff-hero">
             <div class="gradient-ribbon"></div>
             <div class="subpage-hero-content-wrapper container">
                 <div class="hero-subpage-content glassmorphism">
                     <h1>Meet Our Dedicated Team</h1>
                     <p>Behind every successful member is a team committed to excellence, support, and financial growth. Get to know the professionals at ALARM SACCO.</p>
+                    <a href="staff-detailed.html" class="btn btn-primary mt-4">Meet the Full Team</a>
                 </div>
             </div>
         </section>
@@ -226,21 +252,9 @@
                 <h2 class="text-center">Our Pillars of Support</h2>
                 <p class="section-description">Our diverse team brings a wealth of experience and a shared passion for empowering your financial journey. Each member is dedicated to serving you.</p>
 
-                <!-- chief executive officer -->
                 <div class="team-card-container">
                     <div class="team-card glassmorphism">
-                        <img src="assets/img/staff/ceo.jpg" alt="CEO">
-                        <h3>Bynito Ben</h3>
-                        <p>Chief Executive Officer</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- chairman -->
-                    <div class="team-card glassmorphism">
-                        <img src="assets/img/staff/manager.jpg" alt="Chairman">
+                        <img src="assets/img/staff/chairman.jpg" alt="Milton Mukhutsi">
                         <h3>Milton Mukhutsi</h3>
                         <p>Chairman</p>
                         <div class="social-links">
@@ -248,10 +262,35 @@
                             <a href="#"><i class="fab fa-twitter"></i></a>
                         </div>
                     </div>
-
-                    <!-- treasurer -->
                     <div class="team-card glassmorphism">
-                        <img src="assets/img/staff/advisor.jpg" alt="Treasurer">
+                        <img src="assets/img/staff/CEO.jpg" alt="Bynito Ben">
+                        <h3>Bynito Ben</h3>
+                        <p>Chief Executive Officer</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-card glassmorphism">
+                        <img src="assets/img/staff/hon.secretary.jpg" alt="nicholas omondi">
+                        <h3>Nicholas Omondi</h3>
+                        <p>Hon. Secretary</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-card glassmorphism">
+                        <img src="assets/img/staff/creditchairman.jpg" alt="nyanduso nyongoina">
+                        <h3>Nyanduso Nyongoina</h3>
+                        <p>Credit Chairman</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-card glassmorphism">
+                        <img src="assets/img/staff/treasurer.jpg" alt="Avogadros Barasa">
                         <h3>Avogadros Barasa</h3>
                         <p>Treasurer</p>
                         <div class="social-links">
@@ -259,69 +298,53 @@
                             <a href="#"><i class="fab fa-twitter"></i></a>
                         </div>
                     </div>
-
-                    <!-- hon. Secretary -->
                     <div class="team-card glassmorphism">
-                        <img src="assets/img/staff/relations.jpg" alt="Hon. Secretary">
-                        <h3>Nicholas Omondi</h3>
-                        <p>Hon.Secretary</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- loan officer -->
-                    <div class="team-card glassmorphism">
-                        <img src="assets/img/staff/loan.jpg" alt="Loan Officer">
-                        <h3>Sylvia Cheboo</h3>
-                        <p>Loan Officer</p>
+                        <img src="assets/img/staff/loansofficer.jpg" alt="Sylvia Cheeboo">
+                        <h3>Sylvia Cheeboo</h3>
+                        <p>Loans Officer</p>
                         <div class="social-links">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
                             <a href="#"><i class="fab fa-facebook"></i></a>
                         </div>
                     </div>
+                </div>
 
-                    <!-- credit chairman -->
-                    <div class="team-card glassmorphism">
-                        <img src="assets/img/staff/savings.jpg" alt="Credit chairman">
-                        <h3>Nyandusi Nyongoina</h3>
-                        <p>Credit Chairman</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
+                <div class="text-center mt-4">
+                    <a href="staff-detailed.html" class="btn btn-primary">View All Staff</a>
                 </div>
             </div>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact" class="contact-hero-section">
             <div class="contact-cards-wrapper container">
                 <div class="contact-info-card glassmorphism">
                     <h2>Contact Us!</h2>
                     <div class="contact-detail">
                         <i class="fas fa-phone-alt"></i>
-                        <span>Phone: +254 722 832933 / +254 735 969279</span>
+                        <span><strong>Phone:</strong> +254 700 123 456 <br> +254 735 969279</span>
                     </div>
                     <div class="contact-detail">
                         <i class="fas fa-envelope"></i>
-                        <span>Email: info@alarmsacco.co.ke</span>
+                        <span><strong>Email:</strong> info@alarmssacco.co.ke <br> alarmssacco@gmail.com</span>
                     </div>
                     <div class="contact-detail">
                         <i class="fas fa-clock"></i>
-                        <span>Hours: Mon-Fri: 8:00AM - 5:00PM, Sat:8:00AM - 1:00PM</span>
+                        <span><strong>Operating Hours:</strong> <br> Monday - Friday: 8:00 AM - 5:00 PM <br> Saturday: 9:00 AM - 1:00 PM <br> Sunday: Closed <br> Public Holidays: Closed</span>
                     </div>
                     <div class="contact-detail">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Location: Moi Avenue, Behind Housing Finance Bank, Mombasa</span>
+                        <span><strong>Physical Location:</strong> <br> ALARMS SACCO HQ, Moi Avenue, Behind Housing Finance Bank, Mombasa, Kenya</span>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="contact-detailed.html" class="btn btn-primary">Get in Touch</a>
                     </div>
                 </div>
 
                 <div class="map-card glassmorphism">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.144022519956!2d39.6682061!3d-4.0550358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x184013fe512905af%3A0xd20c77b057f623ae!2sMoi%20Ave%2C%20Mombasa%2C%20Kenya!5e0!3m2!1sen!2ske!4v1718530955403!5m2!1sen!2ske"
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.859664654923!2d39.66440597582531!3d-4.041697244976779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x184013444a7f0535%3A0xc6657934440dd687!2sMoi%20Ave%2C%20Mombasa!5e0!3m2!1sen!2ske!4v1718612000000!5m2!1sen!2ske"
                         width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=Housing%20Finance%20Bank,%20Moi%20Avenue,%20Mombasa" target="_blank" class="btn btn-primary get-directions-btn">
+                    <a href="https://www.google.com/maps/search/ALARMS+SACCO+Moi+Avenue,+Behind+Housing+Finance+Bank,+Mombasa,+Kenya" target="_blank" class="btn btn-primary get-directions-btn">
                         <i class="fas fa-location-arrow"></i> Get Directions
                     </a>
                 </div>

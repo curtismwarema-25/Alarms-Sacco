@@ -1,26 +1,27 @@
 // script.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Select all sections that have an 'id' attribute
+    // Select all sections that have an 'id' attribute on the CURRENT page
     const sections = document.querySelectorAll('section[id]');
     // Select all navigation links (desktop and mobile)
     const navLinks = document.querySelectorAll('.nav-link');
     // Select the main navbar element
     const navbar = document.querySelector('.navbar');
 
-    // NEW: Select hamburger menu elements by their IDs
+    // Select hamburger menu elements by their IDs
     const hamburgerMenu = document.getElementById('hamburger-menu');
     // This is the <ul> element that holds the navigation links for mobile
     const mobileNavLinks = document.getElementById('nav-links'); 
 
-    // Define which sections are considered to have "dark" backgrounds.
+    // Define which sections on the index.html are considered to have "dark" backgrounds.
     // When the navbar is over these sections, its text/logo should become light for better contrast.
-    // Ensure these IDs ('services', 'staff', 'contact') correspond to actual dark background sections in your HTML.
-    const darkBackgroundSections = ['services', 'staff', 'contact']; 
+    // Updated to include 'about-us' as its hero section might also have a dark background image.
+    const darkBackgroundSections = ['about-us', 'services', 'staff', 'contact']; 
 
     /**
      * Updates the active state of navigation links and adjusts navbar theme
-     * based on the current scroll position.
+     * based on the current scroll position. This function primarily works
+     * for internal links on the index.html page.
      */
     function updateNavAndTheme() {
         let currentActiveSectionId = '';
@@ -48,11 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 1. Update active navigation link:
         navLinks.forEach(link => {
-            link.classList.remove('active'); // Remove 'active' class from all links first
+            // Only manage active state for internal links on the current page
+            if (link.getAttribute('href').startsWith('#')) {
+                link.classList.remove('active'); // Remove 'active' class from all internal links first
 
-            // If the link's href matches the ID of the current active section, add 'active' class
-            if (link.getAttribute('href') === `#${currentActiveSectionId}`) {
-                link.classList.add('active');
+                // If the link's href matches the ID of the current active section, add 'active' class
+                if (link.getAttribute('href') === `#${currentActiveSectionId}`) {
+                    link.classList.add('active');
+                }
             }
         });
 
@@ -60,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // If no specific section is active and we are near the top, activate 'Home' link.
         // The '+ 100' provides a small scroll-down buffer before the 'Home' active state is removed.
         if (!currentActiveSectionId && window.scrollY < (sections[0] ? sections[0].offsetTop - navbarHeight - 50 + 100 : 100)) {
-             document.querySelector('a[href="#home"]').classList.add('active');
+            document.querySelector('a[href="#home"]').classList.add('active');
         }
 
         // 2. Update navbar theme based on darkBackgroundSections:
@@ -70,9 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Only remove dark-theme-active if not currently over a dark section
             // AND if we are not at the very top where the hero section (light background) is visible
             if (window.scrollY < (sections[0] ? sections[0].offsetTop - navbarHeight - 50 : 0) + 100) {
-                 navbar.classList.remove('dark-theme-active');
+                navbar.classList.remove('dark-theme-active');
             } else if (!shouldNavbarBeDarkThemed) { // Ensure it's removed if not over a dark section
-                 navbar.classList.remove('dark-theme-active');
+                navbar.classList.remove('dark-theme-active');
             }
         }
 
@@ -93,8 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hamburgerMenu && mobileNavLinks) {
         hamburgerMenu.addEventListener('click', function() {
             mobileNavLinks.classList.toggle('active');   // Toggle active class on mobile nav <ul>
-            hamburgerMenu.classList.toggle('active');    // Toggle active class on hamburger icon
-            document.body.classList.toggle('no-scroll'); // Toggle class to prevent/allow body scrolling
+            hamburgerMenu.classList.toggle('active');     // Toggle active class on hamburger icon
+            document.body.classList.toggle('no-scroll');  // Toggle class to prevent/allow body scrolling
         });
 
         // Close mobile menu when a navigation link is clicked inside the menu
@@ -111,26 +115,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Implements smooth scrolling when navigation links are clicked.
+     * Implements smooth scrolling when internal navigation links are clicked.
+     * External links are allowed to behave normally.
      */
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent default anchor jump behavior (instant scroll)
+            const targetId = this.getAttribute('href'); // Get the target section ID or file path
 
-            const targetId = this.getAttribute('href'); // Get the target section ID (e.g., '#about-us')
-            const targetSection = document.querySelector(targetId); // Find the actual section element
+            // ONLY prevent default and smooth scroll if it's an internal anchor link
+            if (targetId.startsWith('#')) {
+                e.preventDefault(); // Prevent default anchor jump behavior (instant scroll)
 
-            if (targetSection) {
-                // Calculate the scroll position, accounting for the fixed navbar height.
-                // The '+ 1' is a small adjustment to prevent visual flickering at section boundaries.
-                const offsetTop = targetSection.offsetTop - navbar.offsetHeight + 1; 
+                const targetSection = document.querySelector(targetId); // Find the actual section element
 
-                // Smoothly scroll to the calculated position
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth' // Enables smooth scrolling animation
-                });
+                if (targetSection) {
+                    // Calculate the scroll position, accounting for the fixed navbar height.
+                    // The '+ 1' is a small adjustment to prevent visual flickering at section boundaries.
+                    const offsetTop = targetSection.offsetTop - navbar.offsetHeight + 1; 
+
+                    // Smoothly scroll to the calculated position
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth' // Enables smooth scrolling animation
+                    });
+                }
             }
+            // If it's not an internal link (e.g., loans-detailed.html),
+            // the default browser behavior will handle the navigation, so no 'else' is needed.
         });
     });
 });
