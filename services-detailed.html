@@ -13,17 +13,31 @@
 <body>
     <header class="navbar">
         <div class="container nav-content">
-            <a href="index.html#home" class="logo">ALARMS SACCO</a>
+            <a href="#home" class="logo">ALARMS SACCO</a>
+            
+            <!-- Hamburger Menu for Mobile -->
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
             <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html#home" class="nav-link">Home</a></li>
-                    <li><a href="index.html#about-us" class="nav-link">About Us</a></li>
-                    <li><a href="index.html#services" class="nav-link active">Services</a></li>
-                    <li><a href="index.html#staff" class="nav-link">Staff</a></li>
-                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="about-us-detailed.html" class="nav-link">About Us</a></li>
+                    <li><a href="services-detailed.html" class="nav-link">Services</a></li>
+                    <li><a href="loans-detailed.html" class="nav-link">Loans</a></li>
+                    <li><a href="staff-detailed.html" class="nav-link">Staff</a></li>
+                    <li><a href="news-events.html" class="nav-link">News & Events</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="contact-detailed.html" class="nav-link">Contact</a></li>
+                    <!-- This "Join" button will be hidden on mobile via CSS -->
+                    <!-- <li class="mobile-only-btn-wrapper"><a href="join.html" class="btn btn-join mobile-only-btn">JOIN</a></li> -->
                 </ul>
             </nav>
-            <a href="join.html" class="btn btn-join">JOIN</a>
+            <!-- This "Join" button is for desktop only -->
+            <a href="https://portal.alarmsacco.co.ke/newmember" class="btn btn-join desktop-only-btn">JOIN</a>
         </div>
     </header>
 
@@ -55,7 +69,7 @@
                             <li>Forms basis for loan eligibility.</li>
                             <li>Contributes to SACCO's capital.</li>
                         </ul>
-                        <a href="join.html" class="btn btn-primary btn-small">Become a Member</a>
+                        <a href="https://portal.alarmsacco.co.ke/newmember" class="btn btn-primary btn-small">Become a Member</a>
                     </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-piggy-bank service-icon"></i>
@@ -66,7 +80,7 @@
                             <li>Withdrawal available every December.</li>
                             <li>Ideal for holiday or end-year expenses.</li>
                         </ul>
-                        <a href="join.html" class="btn btn-primary btn-small">Start Saving</a>
+                        <a href="https://portal.alarmsacco.co.ke/newmember" class="btn btn-primary btn-small">Join Us!</a>
                     </div>
                 </div>
             </div>
@@ -88,7 +102,7 @@
                             <li>Requirements: Current payslip, 3 guarantors, 1 supporting document, 1 witness.</li>
                             <li>Repayment period: 12 months.</li>
                         </ul>
-                        <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply Now</a>
+                        <!-- <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply Now</a> -->
                     </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-graduation-cap service-icon"></i>
@@ -101,7 +115,7 @@
                             <li>Repayment period: 12 months.</li>
                             <li>Adequate guarantors required.</li>
                         </ul>
-                        <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply Now</a>
+                        <!-- <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply Now</a> -->
                     </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-university service-icon"></i>
@@ -112,7 +126,7 @@
                             <li>Repayment period: Up to 2 years.</li>
                             <li>Requirements: Current payslip, copies of guarantors ID cards, joining instructions from college/university, 5 guarantors.</li>
                         </ul>
-                        <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply Now</a>
+                        <!-- <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply Now</a> -->
                     </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-building service-icon"></i>
@@ -123,7 +137,7 @@
                             <li>Repayment period: 48 months.</li>
                             <li>Requirements: Current payslip, 5 guarantors, copy of guarantors national ID, 1 witness, phone numbers of guarantors.</li>
                         </ul>
-                        <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply Now</a>
+                        <!-- <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply Now</a> -->
                     </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-clock-rotate-left service-icon"></i>
@@ -133,7 +147,7 @@
                             <li>Interest rate: 1.5% straight line.</li>
                             <li>Repayment and recovery in the same month.</li>
                         </ul>
-                        <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply Now</a>
+                        <!-- <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply Now</a> -->
                     </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-lightbulb service-icon"></i>
@@ -143,7 +157,7 @@
                             <li>Interest rate: 2.0% straight line.</li>
                             <li>Repayment periods: 3 or 6 months.</li>
                         </ul>
-                        <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply Now</a>
+                        <!-- <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply Now</a> -->
                     </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-sync-alt service-icon"></i>
@@ -153,7 +167,7 @@
                             <li>Interest rate: 1.25% on reducing balance.</li>
                             <li>Repayment period: 48 months.</li>
                         </ul>
-                        <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply Now</a>
+                        <!-- <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply Now</a> -->
                     </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-motorcycle service-icon"></i>
@@ -163,7 +177,7 @@
                             <li>Interest rate: 2.0% straight line.</li>
                             <li>Repayment period: 30 months.</li>
                         </ul>
-                        <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply Now</a>
+                        <!-- <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply Now</a> -->
                     </div>
                 </div>
             </div>
@@ -185,7 +199,7 @@
                             <li>Contribution period: 18 months.</li>
                             <li>Coverage: All members, spouse, children, and biological parents of a member.</li>
                         </ul>
-                        <a href="contact-detailed.html" class="btn btn-primary btn-small">Learn More</a>
+                        
                     </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-mobile-alt service-icon"></i>
@@ -195,7 +209,6 @@
                             <li>Lipa na M-pesa service available 24/7.</li>
                             <li>Paybill No: 642060.</li>
                         </ul>
-                        <a href="contact-detailed.html" class="btn btn-primary btn-small">Access Mobile Banking</a>
                     </div>
                 </div>
             </div>

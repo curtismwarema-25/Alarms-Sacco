@@ -247,7 +247,7 @@ body.no-scroll {
 .btn-join:hover {
     background-color: #5d4aa3;
     transform: translateY(-2px);
-    box-shadow: 0 6:px 15px rgba(106, 90, 205, 0.4);
+    box-shadow: 0 6px 15px rgba(106, 90, 205, 0.4);
 }
 
 /* Small button for cards */

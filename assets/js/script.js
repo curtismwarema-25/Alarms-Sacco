@@ -14,97 +14,118 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileNavLinks = document.getElementById('nav-links'); 
 
     // Define which sections on the index.html are considered to have "dark" backgrounds.
-    // When the navbar is over these sections, its text/logo should become light for better contrast.
-    // Updated to include 'about-us' as its hero section might also have a dark background image.
     const darkBackgroundSections = ['about-us', 'services', 'staff', 'contact']; 
 
     /**
-     * Updates the active state of navigation links and adjusts navbar theme
-     * based on the current scroll position. This function primarily works
-     * for internal links on the index.html page.
+     * Highlights the navigation link corresponding to the current HTML page.
+     * This function runs once on page load for all pages.
      */
-    function updateNavAndTheme() {
-        let currentActiveSectionId = '';
-        let shouldNavbarBeDarkThemed = false;
-        const navbarHeight = navbar.offsetHeight; // Get current navbar height dynamically
+    function highlightCurrentPageNavLink() {
+        // Get the current page's filename (e.g., "index.html", "about-us-detailed.html")
+        const path = window.location.pathname;
+        let currentPage = path.substring(path.lastIndexOf('/') + 1);
 
-        // Determine which section is currently in view
-        sections.forEach(section => {
-            // Calculate section boundaries relative to the viewport.
-            // A buffer (e.g., 50px) is added to sectionTop to prevent links from becoming active too early/late,
-            // making the active state feel more natural as the section enters the main viewport.
-            const sectionTop = section.offsetTop - navbarHeight - 50; 
-            const sectionBottom = section.offsetTop + section.offsetHeight;
+        // Handle root URL case (e.g., "http://localhost:8000/" might have currentPage as "")
+        if (currentPage === '' || currentPage === '/') {
+            currentPage = 'index.html'; // Treat root as index.html
+        }
 
-            // Check if the current scroll position is within the section's boundaries
-            if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
-                currentActiveSectionId = section.id;
-
-                // Check if the current section is one of the dark background sections
-                if (darkBackgroundSections.includes(section.id)) {
-                    shouldNavbarBeDarkThemed = true;
-                }
-            }
-        });
-
-        // 1. Update active navigation link:
         navLinks.forEach(link => {
-            // Only manage active state for internal links on the current page
-            if (link.getAttribute('href').startsWith('#')) {
-                link.classList.remove('active'); // Remove 'active' class from all internal links first
-
-                // If the link's href matches the ID of the current active section, add 'active' class
-                if (link.getAttribute('href') === `#${currentActiveSectionId}`) {
-                    link.classList.add('active');
-                }
+            link.classList.remove('active'); // Remove active from all links first
+            
+            // Get the target filename from the link's href attribute
+            const linkHref = link.getAttribute('href');
+            let linkFileName = linkHref.substring(linkHref.lastIndexOf('/') + 1);
+            
+            // Activate the link if its target filename matches the current page's filename
+            if (linkFileName === currentPage) {
+                link.classList.add('active');
             }
         });
+    }
 
-        // Handle the "Home" link specifically if at the very top of the page.
-        // If no specific section is active and we are near the top, activate 'Home' link.
-        // The '+ 100' provides a small scroll-down buffer before the 'Home' active state is removed.
-        if (!currentActiveSectionId && window.scrollY < (sections[0] ? sections[0].offsetTop - navbarHeight - 50 + 100 : 100)) {
-            document.querySelector('a[href="#home"]').classList.add('active');
-        }
+    /**
+     * Manages the active state for internal sections on the homepage (index.html)
+     * based on scroll position, and controls the navbar's dark/light theme.
+     * This function only runs if the current page is index.html.
+     */
+    function updateIndexPageNavAndThemeOnScroll() {
+        // Only execute this logic if on the index.html page
+        const isIndexPage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
 
-        // 2. Update navbar theme based on darkBackgroundSections:
-        if (shouldNavbarBeDarkThemed) {
-            navbar.classList.add('dark-theme-active'); // Add class to make navbar elements light/dark as per theme
-        } else {
-            // Only remove dark-theme-active if not currently over a dark section
-            // AND if we are not at the very top where the hero section (light background) is visible
-            if (window.scrollY < (sections[0] ? sections[0].offsetTop - navbarHeight - 50 : 0) + 100) {
-                navbar.classList.remove('dark-theme-active');
-            } else if (!shouldNavbarBeDarkThemed) { // Ensure it's removed if not over a dark section
+        if (isIndexPage) {
+            let currentActiveSectionId = '';
+            let shouldNavbarBeDarkThemed = false;
+            const navbarHeight = navbar.offsetHeight;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - navbarHeight - 50; 
+                const sectionBottom = section.offsetTop + section.offsetHeight;
+
+                if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+                    currentActiveSectionId = section.id;
+                    if (darkBackgroundSections.includes(section.id)) {
+                        shouldNavbarBeDarkThemed = true;
+                    }
+                }
+            });
+
+            // Iterate through nav links, but only affect internal links (`#id`)
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref.startsWith('#')) {
+                    link.classList.remove('active'); // Remove active from all internal links first
+                    if (linkHref === `#${currentActiveSectionId}`) {
+                        link.classList.add('active');
+                    }
+                }
+            });
+
+            // Special handling for the "Home" link based on scroll position at the very top
+            // If at the top and no other internal section is active, make "Home" active.
+            if (window.scrollY < (sections[0] ? sections[0].offsetTop - navbarHeight - 50 + 100 : 100)) {
+                // Find the actual 'Home' link element by its full href to "index.html"
+                const homeLink = document.querySelector('a[href="index.html"]');
+                if (homeLink) {
+                    homeLink.classList.add('active');
+                }
+            }
+
+
+            // Update navbar theme based on sections
+            if (shouldNavbarBeDarkThemed) {
+                navbar.classList.add('dark-theme-active');
+            } else {
                 navbar.classList.remove('dark-theme-active');
             }
-        }
-
-        // Ensure navbar is light when at the very top of the page (e.g., hero section)
-        if (window.scrollY === 0) {
+            // Ensure navbar is light when at the very top of the page (hero section)
+            if (window.scrollY === 0) {
+                 navbar.classList.remove('dark-theme-active');
+            }
+        } else {
+            // If not on index.html, ensure the navbar is always in its default light theme state
             navbar.classList.remove('dark-theme-active');
         }
     }
 
-    // Add scroll event listener to trigger the update function
-    window.addEventListener('scroll', updateNavAndTheme);
+    // Initial calls on page load
+    highlightCurrentPageNavLink();          // Sets active link for the current HTML file
+    updateIndexPageNavAndThemeOnScroll();   // Applies homepage-specific scroll logic (if on index.html)
 
-    // Initial call to set the correct state on page load
-    updateNavAndTheme();
+    // Add scroll event listener
+    window.addEventListener('scroll', updateIndexPageNavAndThemeOnScroll);
 
     // --- Hamburger Menu Toggle Logic ---
-    // Check if hamburgerMenu and mobileNavLinks elements exist before adding listeners
     if (hamburgerMenu && mobileNavLinks) {
         hamburgerMenu.addEventListener('click', function() {
-            mobileNavLinks.classList.toggle('active');   // Toggle active class on mobile nav <ul>
-            hamburgerMenu.classList.toggle('active');     // Toggle active class on hamburger icon
-            document.body.classList.toggle('no-scroll');  // Toggle class to prevent/allow body scrolling
+            mobileNavLinks.classList.toggle('active');
+            hamburgerMenu.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
         });
 
         // Close mobile menu when a navigation link is clicked inside the menu
         mobileNavLinks.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                // Check if the menu is open before trying to close it
                 if (mobileNavLinks.classList.contains('active')) {
                     mobileNavLinks.classList.remove('active');
                     hamburgerMenu.classList.remove('active');
@@ -115,33 +136,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Implements smooth scrolling when internal navigation links are clicked.
-     * External links are allowed to behave normally.
+     * Implements smooth scrolling when internal navigation links are clicked,
+     * but only if on the index.html page. External links behave normally.
      */
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href'); // Get the target section ID or file path
+            const targetHref = this.getAttribute('href');
+            const isIndexPage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
 
-            // ONLY prevent default and smooth scroll if it's an internal anchor link
-            if (targetId.startsWith('#')) {
-                e.preventDefault(); // Prevent default anchor jump behavior (instant scroll)
-
-                const targetSection = document.querySelector(targetId); // Find the actual section element
+            // ONLY prevent default and smooth scroll if it's an internal anchor link AND we are on index.html
+            if (targetHref.startsWith('#') && isIndexPage) {
+                e.preventDefault(); 
+                const targetSection = document.querySelector(targetHref);
 
                 if (targetSection) {
-                    // Calculate the scroll position, accounting for the fixed navbar height.
-                    // The '+ 1' is a small adjustment to prevent visual flickering at section boundaries.
                     const offsetTop = targetSection.offsetTop - navbar.offsetHeight + 1; 
-
-                    // Smoothly scroll to the calculated position
                     window.scrollTo({
                         top: offsetTop,
-                        behavior: 'smooth' // Enables smooth scrolling animation
+                        behavior: 'smooth'
                     });
                 }
             }
-            // If it's not an internal link (e.g., loans-detailed.html),
-            // the default browser behavior will handle the navigation, so no 'else' is needed.
+            // If it's an external page link (e.g., "loans-detailed.html"), the browser's default behavior will handle it.
+            // If it's an internal link but NOT on index.html, it will also default to normal browser behavior (though
+            // in your current setup, internal links only exist on index.html).
         });
     });
 });

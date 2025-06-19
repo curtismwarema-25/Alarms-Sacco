@@ -13,17 +13,31 @@
 <body>
     <header class="navbar">
         <div class="container nav-content">
-            <a href="index.html#home" class="logo">ALARMS SACCO</a>
+            <a href="#home" class="logo">ALARMS SACCO</a>
+            
+            <!-- Hamburger Menu for Mobile -->
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
             <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html#home" class="nav-link">Home</a></li>
-                    <li><a href="index.html#about-us" class="nav-link active">About Us</a></li>
-                    <li><a href="index.html#services" class="nav-link">Services</a></li>
-                    <li><a href="index.html#staff" class="nav-link">Staff</a></li>
-                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="index.html#about-us" class="nav-link">About Us</a></li>
+                    <li><a href="services-detailed.html" class="nav-link">Services</a></li>
+                    <li><a href="loans-detailed.html" class="nav-link">Loans</a></li>
+                    <li><a href="staff-detailed.html" class="nav-link">Staff</a></li>
+                    <li><a href="news-events.html" class="nav-link">News & Events</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="contact-detailed.html" class="nav-link">Contact</a></li>
+                    <!-- This "Join" button will be hidden on mobile via CSS -->
+                    <!-- <li class="mobile-only-btn-wrapper"><a href="join.html" class="btn btn-join mobile-only-btn">JOIN</a></li> -->
                 </ul>
             </nav>
-            <a href="join.html" class="btn btn-join">JOIN</a>
+            <!-- This "Join" button is for desktop only -->
+            <a href="https://portal.alarmsacco.co.ke/newmember" class="btn btn-join desktop-only-btn">JOIN</a>
         </div>
     </header>
 

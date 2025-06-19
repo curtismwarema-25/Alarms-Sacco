@@ -13,17 +13,31 @@
 <body>
     <header class="navbar">
         <div class="container nav-content">
-            <a href="index.html#home" class="logo">ALARMS SACCO</a>
+            <a href="#home" class="logo">ALARMS SACCO</a>
+            
+            <!-- Hamburger Menu for Mobile -->
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
             <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html#home" class="nav-link">Home</a></li>
-                    <li><a href="index.html#about-us" class="nav-link">About Us</a></li>
-                    <li><a href="index.html#services" class="nav-link">Services</a></li>
-                    <li><a href="index.html#staff" class="nav-link">Staff</a></li>
-                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="about-us-detailed.html" class="nav-link">About Us</a></li>
+                    <li><a href="services-detailed.html" class="nav-link">Services</a></li>
+                    <li><a href="loans-detailed.html" class="nav-link">Loans</a></li>
+                    <li><a href="staff-detailed.html" class="nav-link">Staff</a></li>
+                    <li><a href="news-events.html" class="nav-link">News & Events</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="contact-detailed.html" class="nav-link">Contact</a></li>
+                    <!-- This "Join" button will be hidden on mobile via CSS -->
+                    <!-- <li class="mobile-only-btn-wrapper"><a href="join.html" class="btn btn-join mobile-only-btn">JOIN</a></li> -->
                 </ul>
             </nav>
-            <a href="join.html" class="btn btn-join">JOIN</a>
+            <!-- This "Join" button is for desktop only -->
+            <a href="https://portal.alarmsacco.co.ke/newmember" class="btn btn-join desktop-only-btn">JOIN</a>
         </div>
     </header>
 
@@ -63,7 +77,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply for Emergency Loan</a>
+                        <!-- <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply for Emergency Loan</a> -->
                     </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-book-reader service-icon"></i> <!-- More specific icon -->
@@ -82,7 +96,7 @@
                             </li>
                             <li><strong>Processing:</strong> Available from January to March every year.</li>
                         </ul>
-                        <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply for School Fee Loan</a>
+                        <!-- <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply for School Fee Loan</a> -->
                     </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-university service-icon"></i>
@@ -101,7 +115,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply for University Loan</a>
+                        <!-- <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply for University Loan</a> -->
                     </div>
                 </div>
             </div>
@@ -132,7 +146,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply for Development Loan</a>
+                        <!-- <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply for Development Loan</a> -->
                     </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-bolt service-icon"></i> <!-- More specific icon -->
@@ -143,7 +157,7 @@
                             <li><strong>Interest Rate:</strong> 1.5% straight line.</li>
                             <li><strong>Repayment:</strong> Recoverable in the same month.</li>
                         </ul>
-                        <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply for Instant Loan</a>
+                        <!-- <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply for Instant Loan</a> -->
                     </div>
                 </div>
             </div>
@@ -166,7 +180,7 @@
                             <li><strong>Repayment Periods:</strong> 3 months and 6 months respectively.</li>
                             <li><strong>Requirements:</strong> Written quotations for items.</li>
                         </ul>
-                        <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply for Special/Item Loan</a>
+                        <!-- <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply for Special/Item Loan</a> -->
                     </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-motorcycle service-icon"></i>
@@ -177,7 +191,7 @@
                             <li><strong>Interest Rate:</strong> 2.0% straight line.</li>
                             <li><strong>Repayment Period:</strong> 30 months.</li>
                         </ul>
-                        <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply for Asset Loan</a>
+                        <!-- <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply for Asset Loan</a> -->
                     </div>
                     <div class="service-card glassmorphism">
                         <i class="fas fa-sync-alt service-icon"></i>
@@ -188,7 +202,7 @@
                             <li><strong>Interest Rate:</strong> 1.25% on reducing balance.</li>
                             <li><strong>Repayment Period:</strong> 48 months.</li>
                         </ul>
-                        <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply for Top-up Loan</a>
+                        <!-- <a href="contact-detailed.html" class="btn btn-primary btn-small">Apply for Top-up Loan</a> -->
                     </div>
                 </div>
             </div>
@@ -197,7 +211,7 @@
         <!-- Loan Calculator Section (Placeholder) -->
         <section id="loan-calculator" class="section-padding">
             <div class="container">
-                <h2 class="text-center">Loan Calculator</h2>
+                <!-- <h2 class="text-center">Loan Calculator</h2>
                 <p class="section-description">Estimate your potential loan repayments with our easy-to-use calculator. *For illustration purposes only.*</p>
                 <div class="contact-form-container glassmorphism">
                     <form class="loan-calculator-form">
@@ -218,10 +232,10 @@
                         </div>
                         <div id="repaymentResult" class="mt-4 text-center">
                             <!-- Results will be displayed here -->
-                            <p style="font-size: 1.2rem; color: var(--text-dark);">Monthly Repayment: <span style="font-weight: bold; color: var(--primary-color);">KES 0.00</span></p>
+                            <!-- <p style="font-size: 1.2rem; color: var(--text-dark);">Monthly Repayment: <span style="font-weight: bold; color: var(--primary-color);">KES 0.00</span></p>
                             <p style="font-size: 0.9rem; color: #777;">Total Payable: KES 0.00 | Total Interest: KES 0.00</p>
                         </div>
-                    </form>
+                    </form> -->
                 </div>
             </div>
         </section>

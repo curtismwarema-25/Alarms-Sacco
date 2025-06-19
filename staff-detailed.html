@@ -13,17 +13,31 @@
 <body>
     <header class="navbar">
         <div class="container nav-content">
-            <a href="index.html#home" class="logo">ALARMS SACCO</a>
+            <a href="#home" class="logo">ALARMS SACCO</a>
+            
+            <!-- Hamburger Menu for Mobile -->
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
             <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html#home" class="nav-link">Home</a></li>
-                    <li><a href="index.html#about-us" class="nav-link">About Us</a></li>
-                    <li><a href="index.html#services" class="nav-link">Services</a></li>
-                    <li><a href="index.html#staff" class="nav-link active">Staff</a></li>
-                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="about-us-detailed.html" class="nav-link">About Us</a></li>
+                    <li><a href="services-detailed.html" class="nav-link">Services</a></li>
+                    <li><a href="loans-detailed.html" class="nav-link">Loans</a></li>
+                    <li><a href="staff-detailed.html" class="nav-link">Staff</a></li>
+                    <li><a href="news-events.html" class="nav-link">News & Events</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="contact-detailed.html" class="nav-link">Contact</a></li>
+                    <!-- This "Join" button will be hidden on mobile via CSS -->
+                    <!-- <li class="mobile-only-btn-wrapper"><a href="join.html" class="btn btn-join mobile-only-btn">JOIN</a></li> -->
                 </ul>
             </nav>
-            <a href="join.html" class="btn btn-join">JOIN</a>
+            <!-- This "Join" button is for desktop only -->
+            <a href="https://portal.alarmsacco.co.ke/newmember" class="btn btn-join desktop-only-btn">JOIN</a>
         </div>
     </header>
 
@@ -46,7 +60,7 @@
                 <p class="section-description">Our Board provides strategic direction and upholds the highest standards of governance for the benefit of all members.</p>
                 <div class="team-card-container">
                     <div class="team-card glassmorphism">
-                        <img src="https://placehold.co/150x150/8a2be2/white?text=Milton" alt="Milton Mukhutsi">
+                        <img src="assets/img/staff/chairman.jpg" alt="Milton Mukhutsi">
                         <h3>Milton Mukhutsi</h3>
                         <p>Chairman</p>
                         <span class="role-description">Leads the Board in setting strategic goals and overseeing the SACCO's overall performance.</span>
@@ -56,7 +70,7 @@
                         </div>
                     </div>
                     <div class="team-card glassmorphism">
-                        <img src="https://placehold.co/150x150/8a2be2/white?text=Nicholas" alt="Nicholas Omondi">
+                        <img src="assets/img/staff/hon.secretary.jpg" alt="Nicholas Omondi">
                         <h3>Nicholas Omondi</h3>
                         <p>Hon. Secretary</p>
                         <span class="role-description">Responsible for maintaining official records and ensuring proper communication within the Board and with members.</span>
@@ -66,7 +80,7 @@
                         </div>
                     </div>
                     <div class="team-card glassmorphism">
-                        <img src="https://placehold.co/150x150/8a2be2/white?text=Avogadross" alt="Avogadross Barasa">
+                        <img src="assets/img/staff/treasurer.jpg" alt="Avogadross Barasa">
                         <h3>Avogadross Barasa</h3>
                         <p>Treasurer</p>
                         <span class="role-description">Manages the SACCO's financial affairs, ensuring sound financial health and compliance.</span>
@@ -76,7 +90,7 @@
                         </div>
                     </div>
                     <div class="team-card glassmorphism">
-                        <img src="https://placehold.co/150x150/8a2be2/white?text=Nyandusi" alt="Nyandusi Nyongoina">
+                        <img src="assets/img/staff/creditchairman.jpg" alt="Nyandusi Nyongoina">
                         <h3>Nyandusi Nyongoina</h3>
                         <p>Credit Chairman</p>
                         <span class="role-description">Oversees the credit committee, ensuring fair and efficient loan application and approval processes.</span>
@@ -84,7 +98,7 @@
                             <a href="#"><i class="fab fa-linkedin"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                         </div>
-                    </div>
+                    <!-- </div>
                      <div class="team-card glassmorphism">
                         <img src="https://placehold.co/150x150/C0C0C0/white?text=Director+1" alt="Board Director 1">
                         <h3>Director Name 1</h3>
@@ -103,7 +117,7 @@
                         <div class="social-links">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -116,7 +130,7 @@
                 <p class="section-description">Our skilled team handles daily operations, ensuring efficient service delivery and member satisfaction.</p>
                 <div class="team-card-container">
                     <div class="team-card glassmorphism">
-                        <img src="https://placehold.co/150x150/8a2be2/white?text=Bynito" alt="Bynito Ben">
+                        <img src="assets/img/staff/CEO.jpg" alt="Bynito Ben">
                         <h3>Bynito Ben</h3>
                         <p>Chief Executive Officer</p>
                         <span class="role-description">Leads the day-to-day management and execution of the SACCO's strategic objectives.</span>
@@ -126,7 +140,7 @@
                         </div>
                     </div>
                     <div class="team-card glassmorphism">
-                        <img src="https://placehold.co/150x150/8a2be2/white?text=Margate" alt="Margate Awuor">
+                        <img src="assets/img/staff/accountant.jpeg" alt="Margate Awuor">
                         <h3>Margate Awuor</h3>
                         <p>Accountant</p>
                         <span class="role-description">Manages financial records, prepares statements, and ensures compliance with accounting standards.</span>
@@ -136,7 +150,7 @@
                         </div>
                     </div>
                     <div class="team-card glassmorphism">
-                        <img src="https://placehold.co/150x150/8a2be2/white?text=Florence" alt="Florence Ogise">
+                        <img src="assets/img/staff/creditofficer.jpeg" alt="Florence Ogise">
                         <h3>Florence Ogise</h3>
                         <p>Credit Officer</p>
                         <span class="role-description">Processes loan applications, advises members on credit options, and manages loan disbursements.</span>
@@ -146,7 +160,7 @@
                         </div>
                     </div>
                      <div class="team-card glassmorphism">
-                        <img src="https://placehold.co/150x150/8a2be2/white?text=Gloria" alt="Gloria Kemmy">
+                        <img src="assets/img/staff/customerservice.jpeg" alt="Gloria Kemmy">
                         <h3>Gloria Kemmy</h3>
                         <p>Customer Service</p>
                         <span class="role-description">Serves as the primary point of contact for member inquiries, providing support and resolving issues.</span>
@@ -156,7 +170,7 @@
                         </div>
                     </div>
                     <div class="team-card glassmorphism">
-                        <img src="https://placehold.co/150x150/8a2be2/white?text=Sylvia" alt="Sylvia Cheeboo">
+                        <img src="assets/img/staff/loansofficer.jpg" alt="Sylvia Cheeboo">
                         <h3>Sylvia Cheeboo</h3>
                         <p>Loans Officer</p>
                         <span class="role-description">Facilitates loan applications, guides members through the process, and ensures timely loan processing.</span>
@@ -166,7 +180,7 @@
                         </div>
                     </div>
                      <div class="team-card glassmorphism">
-                        <img src="https://placehold.co/150x150/8a2be2/white?text=Kefa" alt="Kefa Magare">
+                        <img src="assets/img/staff/credit.jpeg" alt="Kefa Magare">
                         <h3>Kefa Magare</h3>
                         <p>Credit</p>
                         <span class="role-description">Manages the SACCO's credit portfolio, assesses creditworthiness, and ensures healthy loan repayment.</span>
@@ -176,7 +190,7 @@
                         </div>
                     </div>
                     <!-- Remaining placeholders from original staff.html, adjusted for detailed page -->
-                    <div class="team-card glassmorphism">
+                    <!-- <div class="team-card glassmorphism">
                         <img src="assets/img/staff/advisor.jpg" alt="Senior Financial Advisor">
                         <h3>Michael Brown</h3>
                         <p>Senior Financial Advisor</p>
@@ -185,8 +199,8 @@
                             <a href="#"><i class="fab fa-linkedin"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                         </div>
-                    </div>
-                    <div class="team-card glassmorphism">
+                    </div> -->
+                    <!-- <div class="team-card glassmorphism">
                         <img src="assets/img/staff/relations.jpg" alt="Member Relations Officer">
                         <h3>Emily White</h3>
                         <p>Member Relations Officer</p>
@@ -196,7 +210,7 @@
                             <a href="#"><i class="fab fa-twitter"></i></a>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="text-center mt-4">
                     <p class="section-description">Interested in joining our dynamic team?</p>
