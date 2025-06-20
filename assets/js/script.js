@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // This is the <ul> element that holds the navigation links for mobile
     const mobileNavLinks = document.getElementById('nav-links'); 
 
-    // Select the scroll indicator element
+    // Select the scroll indicator element (present on hero sections of various pages)
     const scrollDownIndicator = document.getElementById('scrollDownIndicator');
 
     // Define which sections on the index.html are considered to have "dark" backgrounds.
@@ -94,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-
             // Update navbar theme based on sections
             if (shouldNavbarBeDarkThemed) {
                 navbar.classList.add('dark-theme-active');
@@ -161,8 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
             // If it's an external page link (e.g., "loans-detailed.html"), the browser's default behavior will handle it.
-            // If it's an internal link but NOT on index.html, it will also default to normal browser behavior (though
-            // in your current setup, internal links only exist on index.html).
+            // If it's an internal link but NOT on index.html, it will also default to normal browser behavior.
         });
     });
 
@@ -225,16 +223,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Clickable Scroll Indicator Logic (added for index.html) ---
-    // Only apply this logic if on index.html and the scroll indicator exists
-    const isIndexPage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
-    if (isIndexPage && scrollDownIndicator) {
+    // --- Clickable Scroll Indicator Logic for All Pages with Hero and subsequent content ---
+    // This logic runs if the 'scrollDownIndicator' element is present on the page.
+    if (scrollDownIndicator) {
         scrollDownIndicator.addEventListener('click', () => {
-            const firstSectionAfterHero = document.getElementById('about-us'); // Assuming 'about-us' is the first section after the hero
-            if (firstSectionAfterHero) {
-                const offsetTop = firstSectionAfterHero.offsetTop - navbar.offsetHeight + 1;
+            const isIndexPage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
+            let targetSection = null;
+
+            if (isIndexPage) {
+                // On the index page, scroll to the 'about-us' section
+                targetSection = document.getElementById('about-us');
+            } else {
+                // On subpages, scroll to the section immediately following the hero-subpage
+                const heroSubpage = document.querySelector('.hero-subpage');
+                if (heroSubpage) {
+                    // Find the next sibling that is a 'section'
+                    let nextSibling = heroSubpage.nextElementSibling;
+                    while (nextSibling) {
+                        if (nextSibling.tagName === 'SECTION') {
+                            targetSection = nextSibling;
+                            break;
+                        }
+                        nextSibling = nextSibling.nextElementSibling;
+                    }
+                }
+            }
+            
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - navbar.offsetHeight + 1;
                 window.scrollTo({
                     top: offsetTop,
+                    behavior: 'smooth'
+                });
+            } else {
+                // Fallback: If no suitable section is found, scroll down by a viewport height
+                window.scrollBy({
+                    top: window.innerHeight * 0.8, // Scroll down by 80% of viewport height
                     behavior: 'smooth'
                 });
             }
