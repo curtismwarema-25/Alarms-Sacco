@@ -32,7 +32,7 @@ body {
     line-height: 1.6;
     color: var(--text-light); /* Default body text color, for elements not in cards */
     /* Default homepage background */
-    background-image: url('../img/BG.jpg');
+    background-image: url('../img/TEAM.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;

@@ -7,8 +7,122 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Specific styles for the Gallery Page Carousel */
+        .carousel-container {
+            position: relative;
+            max-width: 1200px; /* Adjust max-width as needed */
+            margin: 60px auto 40px auto; /* Centered with top/bottom margin */
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.1); /* Slight glassmorphism */
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            height: 500px; /* Fixed height for consistency */
+            object-fit: cover;
+            flex-shrink: 0; /* Prevent images from shrinking */
+            border-radius: 20px; /* Inherit from container, but apply again for safety */
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            z-index: 10;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .carousel-button:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .carousel-button.prev {
+            left: 20px;
+        }
+
+        .carousel-button.next {
+            right: 20px;
+        }
+
+        .carousel-dots {
+            text-align: center;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .dot.active {
+            background-color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        /* Responsive adjustments for carousel */
+        @media (max-width: 768px) {
+            .carousel-images img {
+                height: 350px; /* Adjust height for mobile */
+            }
+            .carousel-container {
+                margin: 40px auto 30px auto;
+                width: 95%; /* Make it wider on smaller screens */
+            }
+            .carousel-button {
+                padding: 10px;
+                font-size: 1.2rem;
+            }
+            .carousel-button.prev {
+                left: 10px;
+            }
+            .carousel-button.next {
+                right: 10px;
+            }
+            .dot {
+                height: 10px;
+                width: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-images img {
+                height: 250px; /* Further adjust height for very small screens */
+            }
+            .carousel-button {
+                padding: 8px;
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="navbar">
@@ -51,10 +165,48 @@
                     <p>Relive moments from our events, community engagements, and glimpses into the ALARM SACCO family.</p>
                 </div>
             </div>
-            <div class="scroll-indicator">
-                <p>Scroll Down</p>
-                <i class="fas fa-chevron-down chevron-bounce"></i>
+            <div class="container">
+                <h2 class="text-center">A Glimpse Into Our Journey</h2>
+                <p class="section-description">From community outreach to member events, these photos highlight our commitment and the vibrant spirit of our SACCO.</p>
+                <div class="carousel-container">
+                    <div class="carousel-images">
+                        <!-- Add your 28 images here. For demonstration, I've used placeholders. -->
+                        <img src="assets/img/gallery/1.jpeg" alt="Gallery Image 1">
+                        <img src="assets/img/gallery/2.jpeg" alt="Gallery Image 2">
+                        <img src="assets/img/gallery/3.jpeg" alt="Gallery Image 3">
+                        <img src="assets/img/gallery/4.jpeg" alt="Gallery Image 4">
+                        <img src="assets/img/gallery/5.jpeg" alt="Gallery Image 5">
+                        <img src="assets/img/gallery/6.jpeg" alt="Gallery Image 6">
+                        <img src="assets/img/gallery/7.jpeg" alt="Gallery Image 7">
+                        <img src="assets/img/gallery/8.jpeg" alt="Gallery Image 8">
+                        <img src="assets/img/gallery/9.jpeg" alt="Gallery Image 9">
+                        <img src="assets/img/gallery/10.jpeg" alt="Gallery Image 10">
+                        <img src="assets/img/gallery/11.jpeg" alt="Gallery Image 11">
+                        <img src="assets/img/gallery/12.jpeg" alt="Gallery Image 12">
+                        <img src="assets/img/gallery/13.jpeg" alt="Gallery Image 13">
+                        <img src="assets/img/gallery/14.jpeg" alt="Gallery Image 14">
+                        <img src="assets/img/gallery/15.jpeg" alt="Gallery Image 15">
+                        <img src="assets/img/gallery/16.jpeg" alt="Gallery Image 16">
+                        <img src="assets/img/gallery/17.jpeg" alt="Gallery Image 17">
+                        <img src="assets/img/gallery/18.jpeg" alt="Gallery Image 18">
+                        <img src="assets/img/gallery/19.jpeg" alt="Gallery Image 19">
+                        <img src="assets/img/gallery/20.jpeg" alt="Gallery Image 20">
+                        <img src="assets/img/gallery/20.jpeg" alt="Gallery Image 21">
+                        <img src="assets/img/gallery/20.jpeg" alt="Gallery Image 22">
+                        <img src="assets/img/gallery/23.jpeg" alt="Gallery Image 23">
+                        <img src="assets/img/gallery/24.jpeg" alt="Gallery Image 24">
+                        <img src="assets/img/gallery/25.jpeg" alt="Gallery Image 25">
+                        <img src="assets/img/gallery/26.jpeg" alt="Gallery Image 26">
+                        <img src="assets/img/gallery/27.jpeg" alt="Gallery Image 27">
+                        <img src="assets/img/gallery/28.jpeg" alt="Gallery Image 28">
+                    </div>
+                    <button class="carousel-button prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
+                    <div class="carousel-dots">
+            </div>            
         </section>
+
+        
 
         <!-- Image Gallery Section -->
         <section id="image-gallery" class="section-padding bg-light">
@@ -131,5 +283,59 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carouselImages = document.querySelector('.carousel-images');
+            const images = document.querySelectorAll('.carousel-images img');
+            const prevButton = document.querySelector('.carousel-button.prev');
+            const nextButton = document.querySelector('.carousel-button.next');
+            const carouselDotsContainer = document.querySelector('.carousel-dots');
+            let currentIndex = 0;
+
+            // Function to update carousel display
+            function updateCarousel() {
+                const imageWidth = images[0].clientWidth; // Get the actual width of one image
+                carouselImages.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
+                updateDots();
+            }
+
+            // Function to update dot indicators
+            function updateDots() {
+                carouselDotsContainer.innerHTML = ''; // Clear existing dots
+                images.forEach((_, index) => {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot');
+                    if (index === currentIndex) {
+                        dot.classList.add('active');
+                    }
+                    dot.addEventListener('click', () => {
+                        currentIndex = index;
+                        updateCarousel();
+                    });
+                    carouselDotsContainer.appendChild(dot);
+                });
+            }
+
+            // Event listener for Next button
+            nextButton.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateCarousel();
+            });
+
+            // Event listener for Previous button
+            prevButton.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateCarousel();
+            });
+
+            // Handle window resize to re-calculate image width and prevent layout issues
+            window.addEventListener('resize', () => {
+                updateCarousel(); // Recalculate position on resize
+            });
+
+            // Initial setup
+            updateCarousel(); // Show the first image and generate dots on load
+        });
+    </script>
 </body>
 </html>
