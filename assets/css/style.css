@@ -390,8 +390,25 @@ body.no-scroll {
     left: 50%;
     transform: translateX(-50%);
     font-size: 2.5rem;
-    color: var(--text-light);
+    color: var(--primary-color);
     z-index: 1;
+    cursor: pointer; /* Make it clear it's clickable */
+    display: flex; /* Allow text and icon to be side-by-side */
+    flex-direction: column; /* Stack icon and text vertically */
+    align-items: center; /* Center horizontally */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.scroll-indicator:hover {
+    transform: translateX(-50%) translateY(-5px); /* Lift slightly on hover */
+}
+
+.scroll-indicator .scroll-text {
+    font-size: 0.9rem; /* Smaller font for the text */
+    color: var(--text-light); /* Or adjust to a visible color like #eee */
+    margin-top: 5px; /* Space between chevron and text */
+    opacity: 0.8;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5); /* Add subtle shadow for visibility */
 }
 
 /* Chevron Bounce Animation */

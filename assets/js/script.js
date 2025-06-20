@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // This is the <ul> element that holds the navigation links for mobile
     const mobileNavLinks = document.getElementById('nav-links'); 
 
+    // Select the scroll indicator element
+    const scrollDownIndicator = document.getElementById('scrollDownIndicator');
+
     // Define which sections on the index.html are considered to have "dark" backgrounds.
     const darkBackgroundSections = ['about-us', 'services', 'staff', 'contact']; 
 
@@ -162,4 +165,79 @@ document.addEventListener('DOMContentLoaded', () => {
             // in your current setup, internal links only exist on index.html).
         });
     });
+
+    // --- Loan Calculator Logic ---
+    const calculateLoanBtn = document.getElementById('calculateLoan');
+    const loanAmountInput = document.getElementById('loanAmount');
+    const interestRateInput = document.getElementById('interestRate');
+    const loanTermInput = document.getElementById('loanTerm');
+    const repaymentResultDiv = document.getElementById('repaymentResult');
+
+    if (calculateLoanBtn && loanAmountInput && interestRateInput && loanTermInput && repaymentResultDiv) {
+        calculateLoanBtn.addEventListener('click', () => {
+            const principal = parseFloat(loanAmountInput.value);
+            const annualInterestRate = parseFloat(interestRateInput.value);
+            const loanTermMonths = parseInt(loanTermInput.value);
+
+            // Input Validation
+            if (isNaN(principal) || principal <= 0) {
+                repaymentResultDiv.innerHTML = '<p style="color: red;">Please enter a valid loan amount.</p>';
+                return;
+            }
+            if (isNaN(annualInterestRate) || annualInterestRate < 0) {
+                repaymentResultDiv.innerHTML = '<p style="color: red;">Please enter a valid interest rate.</p>';
+                return;
+            }
+            if (isNaN(loanTermMonths) || loanTermMonths <= 0) {
+                repaymentResultDiv.innerHTML = '<p style="color: red;">Please enter a valid loan term in months.</p>';
+                return;
+            }
+
+            // Convert annual interest rate to monthly decimal rate
+            const monthlyInterestRate = (annualInterestRate / 100) / 12;
+
+            let monthlyPayment = 0;
+            let totalPayable = 0;
+            let totalInterest = 0;
+
+            if (monthlyInterestRate === 0) {
+                // Simple interest calculation if rate is 0
+                monthlyPayment = principal / loanTermMonths;
+                totalPayable = principal;
+                totalInterest = 0;
+            } else {
+                // EMI formula
+                const factor = Math.pow(1 + monthlyInterestRate, loanTermMonths);
+                monthlyPayment = principal * (monthlyInterestRate * factor) / (factor - 1);
+                totalPayable = monthlyPayment * loanTermMonths;
+                totalInterest = totalPayable - principal;
+            }
+
+            // Display results, formatted to 2 decimal places
+            repaymentResultDiv.innerHTML = `
+                <p style="font-size: 1.2rem; color: var(--text-dark);">
+                    Monthly Repayment: <span style="font-weight: bold; color: var(--primary-color);">KES ${monthlyPayment.toFixed(2)}</span>
+                </p>
+                <p style="font-size: 0.9rem; color: #777;">
+                    Total Payable: KES ${totalPayable.toFixed(2)} | Total Interest: KES ${totalInterest.toFixed(2)}
+                </p>
+            `;
+        });
+    }
+
+    // --- Clickable Scroll Indicator Logic (added for index.html) ---
+    // Only apply this logic if on index.html and the scroll indicator exists
+    const isIndexPage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
+    if (isIndexPage && scrollDownIndicator) {
+        scrollDownIndicator.addEventListener('click', () => {
+            const firstSectionAfterHero = document.getElementById('about-us'); // Assuming 'about-us' is the first section after the hero
+            if (firstSectionAfterHero) {
+                const offsetTop = firstSectionAfterHero.offsetTop - navbar.offsetHeight + 1;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
 });
