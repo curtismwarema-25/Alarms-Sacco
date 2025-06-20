@@ -3,7 +3,7 @@
 
 :root {
     --primary-color: #007bff; /* Example, adjust as needed */
-    --text-dark: #333;
+    --text-dark: #000;
     --text-light: #fff;
     --glass-bg: rgba(255, 255, 255, 0.15); /* Main glassmorphism background */
     --glass-border: rgba(255, 255, 255, 0.18); /* Glassmorphism border */
@@ -390,7 +390,7 @@ body.no-scroll {
     left: 50%;
     transform: translateX(-50%);
     font-size: 2.5rem;
-    color: var(--primary-color);
+    color: var(--text-light);
     z-index: 1;
 }
 
@@ -443,15 +443,15 @@ body.no-scroll {
 
 /* Specific hero backgrounds */
 #about-us.hero-subpage {
-    background-image: url('../img/about-us/About Us.jpg');
+    background-image: url('../img/about-us/about-us.jpg');
 }
 
 #services.hero-subpage, .loans-hero { /* .loans-hero added to reuse this background */
-    background-image: url('../img/services/Services.jpg');
+    background-image: url('../img/services/services-bg.jpg');
 }
 
 #staff.hero-subpage {
-    background-image: url('../img/staff/TEAM.jpg');
+    background-image: url('../img/TEAM.jpg');
     color: var(--text-light); /* Ensure text is readable */
 }
 
@@ -545,14 +545,14 @@ h2 {
     font-family: 'Outfit', sans-serif; /* Outfit for headings */
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--text-dark);
+    color: #000;
     text-align: center;
     margin-bottom: 40px;
 }
 
 .section-description {
     font-size: 1.1rem;
-    color: var(--text-dark); /* Adjusted to dark for better contrast on light glassmorphism sections */
+    color: var(--text-light);
     text-align: center;
     max-width: 800px;
     margin: -30px auto 50px auto; /* Reduced margin-bottom from 80px to 50px */
@@ -564,7 +564,7 @@ h2 {
     padding: 0;
     text-align: left;
     margin-top: 15px;
-    color: var(--text-dark); /* Dark text for list items on light cards */
+    color: #000; /* Dark text for list items on light cards */
 }
 
 .list-details li {
@@ -603,7 +603,7 @@ h2 {
 
 .about-text-content p {
     font-size: 1.05rem;
-    color: var(--text-dark); /* Adjusted for better contrast on light backgrounds */
+    color: #000; /* Adjusted for better contrast on light backgrounds */
     margin-bottom: 15px;
 }
 
@@ -736,7 +736,7 @@ h2 {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 20px;
-    border: 4px solid var(--primary-color);
+    border: 2px solid var(--primary-color);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -757,7 +757,7 @@ h2 {
 /* NEW: Role description style */
 .team-card .role-description {
     font-size: 0.85rem;
-    color: #666; /* Slightly lighter for description */
+    color: #000; /* Slightly lighter for description */
     margin-bottom: 15px; /* Space before social links */
     display: block; /* Ensures it takes its own line */
 }
@@ -939,7 +939,7 @@ h2 {
 /* -------------------- News & Events Page Styles -------------------- */
 /* News & Events Hero Background */
 .news-events-hero {
-    background-image: url('../img/news-events/news-events-bg.jpg'); /* Placeholder image */
+    background-image: url('../img/gallery/8.jpeg'); /* Placeholder image */
 }
 
 .news-grid {
@@ -1095,12 +1095,12 @@ h2 {
 .event-details .event-description {
     margin-top: 10px;
     margin-bottom: 15px;
-    color: #555;
+    color: #000;
 }
 
 /* -------------------- Gallery Page Styles -------------------- */
 .gallery-hero {
-    background-image: url('../img/gallery/gallery-bg.jpg'); /* Placeholder image */
+    background-image: url('../img/TEAM.jpg'); /* Placeholder image */
 }
 
 .gallery-grid {
