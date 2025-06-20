@@ -32,7 +32,7 @@ body {
     line-height: 1.6;
     color: var(--text-light); /* Default body text color, for elements not in cards */
     /* Default homepage background */
-    background-image: url('../img/TEAM.jpg');
+    background-image: url('../img/alarms.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -303,12 +303,12 @@ body.no-scroll {
     font-weight: 700;
     margin-bottom: 20px;
     line-height: 1.2;
-    color: #ffffff;
+    color: #000;
 }
 
 .hero-text-content p {
     font-size: 1.1rem;
-    color: #ffffff;
+    color: #000;
     margin-bottom: 30px;
     max-width: 500px;
 }
@@ -476,15 +476,6 @@ body.no-scroll {
     background-image: url('../img/contact/contact.jpg');
 }
 
-/* NEW: News & Events Hero Background */
-.news-events-hero {
-    background-image: url('../img/news-events/news-events-bg.jpg'); /* Placeholder, replace with actual image */
-}
-
-/* NEW: Gallery Hero Background */
-.gallery-hero {
-    background-image: url('../img/gallery/gallery-bg.jpg'); /* Placeholder, replace with actual image */
-}
 
 
 /* Wrapper for content within subpage heroes, similar to contact-cards-wrapper */
@@ -953,10 +944,7 @@ h2 {
 
 
 /* -------------------- News & Events Page Styles -------------------- */
-/* News & Events Hero Background */
-.news-events-hero {
-    background-image: url('../img/gallery/8.jpeg'); /* Placeholder image */
-}
+
 
 .news-grid {
     display: grid;
@@ -1116,7 +1104,7 @@ h2 {
 
 /* -------------------- Gallery Page Styles -------------------- */
 .gallery-hero {
-    background-image: url('../img/TEAM.jpg'); /* Placeholder image */
+    /* background-image: url('../img/TEAM.jpg'); Placeholder image */
 }
 
 .gallery-grid {
